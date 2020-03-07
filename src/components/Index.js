@@ -26,13 +26,19 @@ export default function Index() {
   const [IncomeTwo, setIncomeTwo] = valueOneAccountTwo;
   const [ExpensesTwo, setExpensesTwo] = valueTwoAccountTwo;
 
+  const LinkStyle={
+    textDecoration:'none',
+    color:'whitesmoke'
+}
   return (
     <section className="index-page">
       <header>
         <div className="index-header-wrap">
           <div className="index-header-welcome">Hi, User!</div>
           <div className="index-menu" title="menu">
+          <Link style={LinkStyle} to ='/about'>
           <i className="fas fa-ellipsis-h"></i>
+          </Link>
           </div>
         </div>
       </header>

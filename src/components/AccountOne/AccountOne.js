@@ -61,7 +61,10 @@ export default function AccountOne() {
     
 }
 
-
+const LinkStyle={
+  textDecoration:'none',
+  color:'whitesmoke'
+}
   return (
     <div className="account-one-page">
       <header>
@@ -72,7 +75,9 @@ export default function AccountOne() {
             </Link>
           </div>
           <div className="index-header-welcome" style={{fontSize:"1.2rem"}}>Personal Account</div>
-          <div className="index-menu" title="menu"><i className="fas fa-ellipsis-h"></i></div>
+          <div className="index-menu" title="menu">
+          <Link style={LinkStyle} to ='/about'>
+          <i className="fas fa-ellipsis-h"></i></Link></div>
         </div>
       </header>
       <section className="acct-one-balance" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block'}}>

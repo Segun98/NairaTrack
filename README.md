@@ -10,6 +10,8 @@ NairaTrack is exactly what you need to track your income and spendings.
 - Calculate total
 - All data is stored in a local storage
 
-ReactJs, ContextApi, PWA
+ReactJs, ContextApi, PWA.
+
+Link: https://nairatrack.now.sh/
 
 Note* This app is a work in progress and I want to transform it to a fullstack app and possibly a mobile app

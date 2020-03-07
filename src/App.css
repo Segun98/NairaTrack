@@ -1,38 +1,474 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background: whitesmoke;
+    font-family: 'Be Vietnam', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li {
+    list-style: none;
 }
 
-.App-link {
-  color: #61dafb;
+h4,
+h5,
+h6,
+h3,
+p {
+    color: rgb(99, 97, 97);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Index page styles */
+header {
+    background-color: rgb(36, 36, 39);
+    height: 90px;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.index-header-wrap {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+}
+
+.index-header-welcome {
+    font-size: 1.9rem;
+    color: rgb(238, 236, 236);
+    font-weight: bold;
+}
+
+.index-menu {
+    font-weight: bold;
+    color: rgb(224, 220, 220);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.random-quotes {
+    margin-top: 2rem;
+}
+
+.quotes {
+    text-align: center;
+    margin: auto;
+    width: 60%;
+}
+
+.index-account-one-two-wrap {
+    margin-top: 3rem;
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    row-gap: 2rem;
+    /* gap: 2rem; */
+}
+
+.index-account-one {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+.index-account-one-box {
+    box-shadow: 2px 2px 2px 2px rgb(143, 143, 143);
+    border-radius: 1rem;
+    padding: 10px 0;
+}
+
+.index-account-one-box h4 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.index-account-details-wrap {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    padding-top: 10px;
+}
+
+.index-account-one-income {
+    text-align: center;
+}
+
+.index-account-one-expenses {
+    text-align: center;
+}
+
+.index-account-one-balance {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.index-account-one button {
+    border: 1px solid rgb(36, 36, 39);
+    background: none;
+    background-color: rgb(36, 36, 39);
+    padding: 5px 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+/* INDEX PAGE BUSINESS ACCOUNT - ACCOUNT TWO*/
+
+.index-account-two {
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+
+.index-account-two-box {
+    box-shadow: 2px 2px 2px 2px rgb(143, 143, 143);
+    border-radius: 1rem;
+    padding: 10px 0;
+}
+
+.index-account-two-box h4 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+
+.index-account-two-income {
+    text-align: center;
+}
+
+.index-account-two-expenses {
+    text-align: center;
+}
+
+.index-account-two-balance {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.index-account-two button {
+    border: 1px solid rgb(36, 36, 39);
+    background: none;
+    background-color: rgb(36, 36, 39);
+    padding: 5px 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: whitesmoke;
+
+}
+
+/* END */
+
+/* ACCOUNT ONE PAGE STYLES */
+
+.homeNav {
+    font-weight: bold;
+    color: rgb(224, 220, 220);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.acct-one-balance {
+    margin: auto;
+    width: 60%;
+    margin-top: 2rem;
+}
+
+.acct-one-box {
+
+    box-shadow: 2px 2px 2px 2px rgb(87, 87, 87);
+    border-radius: 1rem;
+    padding: 15px 0;
+}
+
+.acct-one-box h4 {
+    text-align: center;
+    font-size: 1.4rem;
+    /* text-decoration: underline; */
+}
+
+.acct-one-box p {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 6px;
+}
+
+.acct-one-income-expense {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    margin-top: 5px;
+}
+
+.acct-one-income-expense p {
+    font-size: 1rem;
+}
+
+.acct-one-income-expense h5 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.acct-one-transactions {
+    margin: auto;
+    width: 95%;
+    margin-top: 2rem;
+}
+
+.acct-one-table-header {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+}
+
+.acct-one-table-header h3:first-child {
+    /* text-decoration: underline; */
+    /* color: rgb(76, 146, 5); */
+    font-size: 1rem;
+}
+
+.acct-one-table-header h3:last-child {
+    /* text-decoration: underline; */
+    /* color: rgb(134, 7, 7); */
+    font-size: 1rem;
+}
+
+.acct-one-table {
+    margin-top: 5px;
+
+}
+
+.acct-one-table-wrap {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    /* display: flex;
+    justify-content: space-between; */
+    transition: all 1s ease-in-out;
+
+}
+
+.expense-one-list {
+    display: flex;
+    margin-top: 8px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: flex-end;
+    transition: all 1s ease-in-out;
+}
+
+.income-one-list {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    margin-top: 8px;
+    justify-content: flex-start;
+    transition: all 1s ease-in-out;
+}
+
+.income-one-details {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* background: rgb(82, 240, 82); */
+    box-shadow: 1px 1px 1px 1px rgb(146, 146, 146, 0.7);
+    place-items: center;
+    padding: 5px 5px;
+    border-radius: 10px;
+    gap: 1px;
+    font-size: 0.9rem;
+    width: 100%;
+    font-weight: bold;
+    color: rgb(99, 97, 97);
+    transition: all 1s ease-in-out;
+}
+
+.expense-one-details {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* background: rgb(247, 78, 78);
+    color: white; */
+    box-shadow: 1px 1px 1px 1px rgb(138, 136, 136, 0.7);
+    font-weight: bold;
+    place-items: center;
+    padding: 5px 5px;
+    border-radius: 10px;
+    gap: 1px;
+    font-size: 0.9rem;
+    width: 100%;
+    color: rgb(99, 97, 97);
+    transition: all 1s ease-in-out;
+}
+
+.deltebtn-expense {
+    margin: 0 3px;
+    color: hotpink;
+    color: #333;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.deltebtn-income {
+    margin: 0 3px;
+    color: hotpink;
+    color: #333;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.name {
+    width: 3.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* .name:hover {
+    /* white-space: normal; */
+/* overflow: visible; */
+/* text-overflow: initial; */
+/* } */
+
+.amount {
+    width: 3.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.date {
+    text-align: center;
+}
+
+.add-new-transaction {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+}
+
+.new-transaction-header h4 {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+
+.account-one-form {
+    margin: auto;
+    width: 70%;
+    margin-top: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.account-one-form label {
+    font-size: 0.8rem;
+}
+
+.add-transaction-input {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    place-items: center;
+
+}
+
+.radio-buttons {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    width: 200px;
+    margin-top: 1rem;
+    place-items: center;
+    gap: 1px;
+    margin-bottom: 10px;
+}
+
+.account-one-form button {
+    margin-top: 5px;
+    border: 1px solid rgb(36, 36, 39);
+    background: none;
+    background-color: rgb(36, 36, 39);
+    padding: 5px 25px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.input-text {
+    width: 120px;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    border-bottom: 1px solid grey;
+    padding: 7px 15px;
+    outline: none;
+}
+
+.input-text:focus {
+    border-bottom: 1px solid hotpink;
+}
+
+.input-radio {
+    margin-right: 4px;
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+
+
+/* ACCOUNT TWO BUSINESS ACCOUNT */
+
+@media only screen and (min-width:480px) {
+    html {
+        background: white;
+    }
+
+    body {
+        margin: auto;
+        width: 380px;
+    }
+
 }

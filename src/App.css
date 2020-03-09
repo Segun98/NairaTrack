@@ -135,7 +135,7 @@ header {
     margin: auto;
     width: 60%;
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
 }
 
 
@@ -503,6 +503,7 @@ header {
 
 .about-body {
     margin-top: 2rem;
+    padding-bottom: 4rem;
 }
 
 .about-body-wrap {

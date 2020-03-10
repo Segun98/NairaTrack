@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
 
 * {
     padding: 0;
@@ -13,6 +14,7 @@ html {
 body {
     background: whitesmoke;
     font-family: 'Be Vietnam', sans-serif;
+    font-family: 'Sen', sans-serif;
 }
 
 li {
@@ -25,6 +27,7 @@ h6,
 h3,
 p {
     color: rgb(99, 97, 97);
+    color: black;
 }
 
 
@@ -52,11 +55,12 @@ header {
     font-weight: bold;
 }
 
-.index-menu {
+.index-menu .fas {
     font-weight: bold;
     color: rgb(224, 220, 220);
     font-size: 1.5rem;
     cursor: pointer;
+    /* padding-top: 0.6rem; */
 }
 
 .random-quotes {
@@ -91,6 +95,7 @@ header {
     border-radius: 1rem;
     padding: 10px 0;
 }
+
 
 .index-account-one-box h4 {
     text-align: center;
@@ -309,7 +314,6 @@ header {
     width: 100%;
     font-weight: bold;
     color: rgb(99, 97, 97);
-    transition: all 1s ease-in-out;
 }
 
 .expense-one-details {
@@ -328,8 +332,7 @@ header {
     gap: 1px;
     font-size: 0.9rem;
     width: 100%;
-    color: rgb(99, 97, 97);
-    transition: all 1s ease-in-out;
+    color: rgb(99, 97, 97)
 }
 
 .deltebtn-expense {
@@ -353,11 +356,12 @@ header {
 }
 
 .name {
-    width: 3.8rem;
+    width: 4.2rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+    font-size: 13px;
 }
 
 /* .name:hover {
@@ -367,15 +371,19 @@ header {
 /* } */
 
 .amount {
-    width: 3.4rem;
+    width: 3.6rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+    font-size: 13px;
 }
 
 .date {
     text-align: center;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
 }
 
 .add-new-transaction {
@@ -386,7 +394,6 @@ header {
 
 .new-transaction-header h4 {
     text-align: center;
-    text-decoration: underline;
     font-size: 1rem;
 }
 
@@ -498,12 +505,12 @@ header {
 
 .footer-wrap .fas {
     font-size: 22px;
-
 }
 
 .about-body {
     margin-top: 2rem;
-    padding-bottom: 4rem;
+    padding-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .about-body-wrap {

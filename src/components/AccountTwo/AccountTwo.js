@@ -4,8 +4,12 @@ import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import IncomeTwoList from "./IncomeTwoList";
 import ExpensesTwoList from "./ExpensesTwoList";
 import Commas from "../../Commas";
+import { useHistory } from "react-router-dom";
+
 
 export default function AccountTwo() {
+  let history = useHistory();
+
   //Radio Option State
   const [Option, setOption] = useState("");
 
@@ -69,10 +73,8 @@ const LinkStyle={
     <div className="account-One-page">
       <header>
         <div className="index-header-wrap">
-          <div className="homeNav" title="Back">
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <div className="homeNav" title="Back" onClick={ ()=> { history.goBack() }} >
             <i className="fas fa-long-arrow-alt-left"></i>
-            </Link>
           </div>
           <div className="index-header-welcome" style={{fontSize:"1.2rem"}}>Business Account</div>
           <div className="index-menu" title="menu"><Link style={LinkStyle} to ='/about'>
@@ -148,7 +150,7 @@ const LinkStyle={
                 type="text"
                 placeholder="e.g Food, salary..."
                 required
-                maxLength="15"
+                maxLength="20"
                 value={Name}
                 onChange={handleNameChange}
               />

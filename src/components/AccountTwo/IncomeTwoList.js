@@ -17,7 +17,8 @@ export default function IncomeTwoList({ name, date, amount, index }) {
     <div>
       <div className="income-one-list">
         <div className="deltebtn-income" title="delete" onClick={handleDelete}>
-        <i className="far fa-trash-alt"></i>
+        {/* <i className="far fa-trash-alt"></i> */}
+        <i className="fas fa-minus-circle"></i>
         </div>
         <div className="income-one-details">
           <div className="date">{date}</div>

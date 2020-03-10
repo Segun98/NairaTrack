@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
+
 
 export default function About() {
+
+  let history = useHistory();
   return (
     <div className="about-page">
       <header>
         <div className="index-header-wrap">
-          <div className="homeNav" title="Back">
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <div className="homeNav" title="Back" onClick={ ()=> { history.goBack() }}>
               <i className="fas fa-long-arrow-alt-left"></i>
-            </Link>
           </div>
           <div className="index-header-welcome" style={{ fontSize: "1.2rem" }}>
             About NairaTrack{" "}
@@ -37,8 +39,8 @@ export default function About() {
           <p>
             All data is stored in your browser's local storage and not
             accessible by the developer. This app was built with ReactJs, using
-            the ContextApi and it is Progressive Web App (PWA). You can proceed
-            to install on your home screen.{" "}
+            the ContextApi and it is a Progressive Web App (PWA). You can proceed
+            to <strong> install on your home screen.</strong>{" "}
           </p>
           <br />
           <p>

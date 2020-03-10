@@ -22,7 +22,8 @@ export default function ExpensesTwoList({ name, date, amount, index }) {
           <div className="amount" title={Commas(amount)}>{Commas(amount)}</div>
         </div>
         <div className="deltebtn-expense" title="delete" onClick={handleDelete}>
-        <i className="far fa-trash-alt"></i>
+        {/* <i className="far fa-trash-alt"></i> */}
+        <i className="fas fa-minus-circle"></i>
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ export default function About() {
           <p>
             NairaTrack is an expense and income tracker app with a simple user
             interface and experience. NairaTrack is exactly what you need to
-            track your income and spendings.{" "}
+            track your daily income and spendings.{" "}
           </p>
           <br />
           <p>

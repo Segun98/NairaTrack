@@ -539,30 +539,75 @@ header {
 .det-list {
     padding: 10px 0;
     margin: 4px auto;
+    border-radius: 5px;
 
 }
 
 .list {
-    display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    justify-content: space-between;
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 3fr 1fr;
     margin: auto;
     width: 90%;
-    align-items: center;
+    place-items: center;
 }
 
 .list li {
     color: white;
+    text-align: center;
+}
+
+.list li:first-child {
+    font-size: 14px;
 }
 
 .detailed-list-head {
-    display: flex;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    justify-content: space-between;
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 3fr 1fr;
     margin: auto;
-    width: 90%;
+    width: 95%;
+    margin-top: 1rem;
+    place-items: center;
+    text-align: center;
+}
+
+/* Business Account */
+
+.det-list-two {
+    padding: 10px 0;
+    margin: 4px auto;
+    border-radius: 5px;
+}
+
+.list-two {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    margin: auto;
+    width: 95%;
+}
+
+.list-two li:first-child {
+    font-size: 14px;
+}
+
+.list-two li {
+    color: white;
+    text-align: center;
+}
+
+.detailed-list-head-two {
+    display: grid;
+    display: -moz-grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    margin: auto;
+    width: 95%;
+    text-align: center;
     margin-top: 1rem;
 }
 

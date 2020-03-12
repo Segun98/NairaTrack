@@ -8,6 +8,7 @@ import AccountOne from "./components/AccountOne/AccountOne";
 import AccountTwo from "./components/AccountTwo/AccountTwo";
 import Footer from './components/Footer'
 import About from './components/About'
+import DetailedListOne from './components/AccountOne/DetailedListOne'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/account-one" component={AccountOne} />
               <Route path="/account-two" component={AccountTwo} />
               <Route path="/about" component={About} />
+              <Route path="/personal-account-detailed-list" component={DetailedListOne} />
             </Switch>
             <Footer />
           </div>

@@ -94,13 +94,6 @@ export function AccountOneProvider(props) {
 
 
 // {
-//   id:1,
-//   date: `${months[new Date().getMonth()]} ${new Date().getDate()} `,
-//   name: "Transport",
-//   amount: 10000,
-//   category: 'Trnasportation'
-// },
-// {
 //   id:2,
 //   date: `${months[new Date().getMonth()]} ${new Date().getDate()} `,
 //   name: "Food",

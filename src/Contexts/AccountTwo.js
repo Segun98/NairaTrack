@@ -18,7 +18,7 @@ export function AccountTwoProvider(props) {
   //found the total
 
   const incomeTwoTotal = IncomeTwoAmounts.reduce((acc, item)=> (acc + item), 0)
-  //console.log(incomeTwoTotal);
+  
   
 
   const ExpensesTwoTotal = ExpensesTwoAmounts.reduce((acc, item)=> (acc + item), 0)

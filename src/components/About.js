@@ -42,6 +42,15 @@ export default function About() {
             the ContextApi and it is a Progressive Web App (PWA). You can proceed
             to <strong> install on your home screen.</strong>{" "}
           </p>
+          <br/>
+          <p>Request a feature{" "}
+          <a
+            href="https://segunos.tk/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            here
+          </a></p>
           <br />
           <p>
             This app was developed by Segun Olanitori, a Front-End Developer

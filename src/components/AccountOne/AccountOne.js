@@ -43,7 +43,7 @@ export default function AccountOne() {
 
   const [IncomeOne, setIncomeOne] = valueOneAccountOne;
   const [ExpensesOne, setExpensesOne] = valueTwoAccountOne;
-
+  
   function handleFormSubmit(e) {
     e.preventDefault(); 
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -52,10 +52,13 @@ export default function AccountOne() {
       id: `${Math.floor(Math.random() * 4489940000)}`,
       name: Name,
       amount: parseInt(Amount),
-      date: `${months[new Date().getMonth()]} ${new Date().getDate()}`
+      date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
+      time:new Date(),
+      type: Option
     }
+    
 
-    if (Option === "income"){
+    if (Option === "Income"){
       setIncomeOne([...IncomeOne, newTransaction])
     }else{
       setExpensesOne([...ExpensesOne, newTransaction])
@@ -135,6 +138,13 @@ const LinkStyle={
           </div>
         </div>
       </section>
+      <section className="full-list" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block' }}>
+        <button>
+        <Link to="personal-account-detailed-list" style={LinkStyle}>
+        View Detailed List
+        </Link>
+        </button>
+      </section>
       <section className="add-new-transaction">
         <div className="new-transaction-header">
           <h4>New Transaction</h4>
@@ -151,7 +161,7 @@ const LinkStyle={
                 type="text"
                 placeholder="e.g Food, salary..."
                 required
-                maxLength="20"
+                maxLength="25"
                 value={Name}
                 onChange={handleNameChange}
               />
@@ -177,9 +187,9 @@ const LinkStyle={
                 className="input-radio"
                 type="radio"
                 name="transaction"
-                value="income"
+                value="Income"
                 onChange={handleChange}
-                checked={Option === "income"}
+                checked={Option === "Income"}
                 required
               />
               <label htmlFor="radio">- Income</label>
@@ -189,9 +199,9 @@ const LinkStyle={
                 className="input-radio"
                 type="radio"
                 name="transaction"
-                value="expenses"
+                value="Expense"
                 onChange={handleChange}
-                checked={Option === "expenses"}
+                checked={Option === "Expense"}
                 required
               />
               <label htmlFor="radio">- Expense</label>

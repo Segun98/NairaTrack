@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AccountOneContext } from "../Contexts/AccountOne";
 import { AccountTwoContext } from "../Contexts/AccountTwo";
 import { Link } from "react-router-dom";
@@ -30,6 +30,31 @@ export default function Index() {
     textDecoration:'none',
     color:'whitesmoke'
 }
+
+const [Modal, setModal] = useState(true);
+const [ModalTwo, setModalTwo] = useState(true)
+
+function handleDelete() {
+      const newAccountOne = [...IncomeOne, ...ExpensesOne];
+      newAccountOne.splice(0, newAccountOne.length);
+      setIncomeOne(newAccountOne);
+      setExpensesOne(newAccountOne);
+  setModal(true);
+}
+function deleteItem() {
+  setModal(false);
+}
+
+function handleDeleteTwo() {
+  const newAccountTwo = [...IncomeTwo, ...ExpensesTwo];
+  newAccountTwo.splice(0, newAccountTwo.length);
+  setIncomeTwo(newAccountTwo);
+  setExpensesTwo(newAccountTwo);
+setModalTwo(true);
+}
+function deleteItemTwo() {
+setModalTwo(false);
+}
   return (
     <section className="index-page">
       <header>
@@ -50,6 +75,50 @@ export default function Index() {
           </h4>
         </div>
       </section>
+
+      <div className={Modal ? "modal" : "modal close-modal"}>
+        <div className="modal-content">
+          <div className="modal-head">
+            <p>Delete Account</p>
+            <p
+              onClick={() => {
+                setModal(true);
+              }}
+            >
+              &times;
+            </p>
+          </div>
+          <div className="modal-body">
+            <h4>Are you sure you want to delete PERSONAL ACCOUNT? All data will be lost and cannot be recovered.</h4>
+          </div>
+          <div className="modal-footer">
+            <div></div>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <div className={ModalTwo ? "modal-two" : "modal-two close-modal"}>
+        <div className="modal-content">
+          <div className="modal-head">
+            <p>Delete Account</p>
+            <p
+              onClick={() => {
+                setModalTwo(true);
+              }}
+            >
+              &times;
+            </p>
+          </div>
+          <div className="modal-body">
+            <h4>Are you sure you want to delete BUSINESS ACCOUNT? All data will be lost and cannot be recovered.</h4>
+          </div>
+          <div className="modal-footer">
+            <div></div>
+            <button onClick={handleDeleteTwo}>Delete</button>
+          </div>
+        </div>
+      </div>
 
       <section className="index-account-one-two-wrap">
         <section className="index-account-one">
@@ -88,20 +157,7 @@ export default function Index() {
               display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'inline-block'
             }}
             title="Delete"
-            onClick={() => {
-              if (
-                window.confirm(
-                  `Are you sure you want to delete PERSONAL ACCOUNT? 
-                  All Data will be lost and cannot be recovered
-                  `
-                )
-              ) {
-                const newAccountOne = [...IncomeOne, ...ExpensesOne];
-                newAccountOne.splice(0, newAccountOne.length);
-                setIncomeOne(newAccountOne);
-                setExpensesOne(newAccountOne);
-              }
-            }}
+            onClick={deleteItem}
           >
             Clear
           </button>
@@ -144,20 +200,7 @@ export default function Index() {
               
             }}
             title="Delete"
-            onClick={() => {
-              if (
-                window.confirm(
-                  `Are you sure you want to delete BUSINESS ACCOUNT?
-                  All Data will be lost and cannot be recovered
-                  `
-                )
-              ) {
-                const newAccountTwo = [...IncomeTwo, ...ExpensesTwo];
-                newAccountTwo.splice(0, newAccountTwo.length);
-                setIncomeTwo(newAccountTwo);
-                setExpensesTwo(newAccountTwo);
-              }
-            }}
+            onClick={deleteItemTwo}
           >
             Clear
           </button>

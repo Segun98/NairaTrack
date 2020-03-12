@@ -53,7 +53,7 @@ export default function ExpensesTwoList({ name, date, amount, index }) {
         </div>
         <div className="deltebtn-expense" title="delete" onClick={deleteItem}>
           {/* <i className="far fa-trash-alt"></i> */}
-          <i className="fas fa-minus-circle">&times;</i>
+          <i className="fas fa-minus-circle"></i>
         </div>
       </div>
     </div>

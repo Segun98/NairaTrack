@@ -51,7 +51,7 @@ export default function ExpensesOneList({ name, date, amount, index }) {
           </div>
         </div>
         <div className="deltebtn-expense" title="delete" onClick={deleteItem}>
-          <i className="fas fa-minus-circle">&times;</i>
+          <i className="fas fa-minus-circle"></i>
         </div>
       </div>
     </div>

@@ -30,6 +30,15 @@ export default function AccountTwo() {
       setAmount(e.target.value)
   }
 
+
+  //Units 
+  const [Units, setUnits] = useState(1)
+
+function handleUnits(e){
+    setUnits(e.target.value)
+    
+
+}
   
   //Income and expenses from Context
   const {
@@ -50,10 +59,12 @@ export default function AccountTwo() {
     const newTransaction ={
       id: `${Math.floor(Math.random() * 4489940000)}`,
       name: Name,
-      amount: parseInt(Amount),
+      amount: parseInt(Amount * Units),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
       time:new Date(),
-      type: Option
+      type: Option,
+      Units,
+      unitPrice: Amount
     }
 
     if (Option === "Income"){
@@ -64,6 +75,7 @@ export default function AccountTwo() {
     setName('')
     setAmount('')
     setOption('')
+    setUnits(1)
     
 }
 
@@ -135,7 +147,13 @@ const LinkStyle={
           </div>
         </div>
       </section>
-      
+      <section className="full-list" style={{display: ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ? 'none' : 'block' }}>
+        <button>
+        <Link to="business-account-detailed-list" style={LinkStyle}>
+        View Detailed List
+        </Link>
+        </button>
+      </section>
       <section className="add-new-transaction">
         <div className="new-transaction-header">
           <h4>New Transaction</h4>
@@ -150,7 +168,7 @@ const LinkStyle={
               <input
                 className="input-text"
                 type="text"
-                placeholder="e.g Food, salary..."
+                placeholder="e.g Sales, Loan..."
                 required
                 maxLength="25"
                 value={Name}
@@ -169,6 +187,17 @@ const LinkStyle={
                 required
                 value={Amount}
                 onChange={handleAmountChange}
+              />
+            </div>
+            <div style={{marginTop:"5px"}}>
+              <label htmlFor="amount">Unit: </label> 
+              <input
+                className="input-text"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                maxLength="4" value={Units} 
+                onChange={handleUnits}
               />
             </div>
           </div>

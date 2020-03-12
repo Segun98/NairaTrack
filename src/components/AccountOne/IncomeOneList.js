@@ -43,7 +43,7 @@ export default function IncomeOneList({ name, date, amount, index }) {
       </div>
       <div className="income-one-list">
         <div className="deltebtn-income" title="delete" onClick={deleteItem}>
-          <i className="fas fa-minus-circle">&times;</i>
+          <i className="fas fa-minus-circle"></i>
         </div>
         <div className="income-one-details">
           <div className="date">{date}</div>

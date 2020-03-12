@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AccountOneContext } from "../../Contexts/AccountOne";
+import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Commas from "../../Commas";
@@ -7,15 +7,17 @@ import Commas from "../../Commas";
 export default function DetailedListOne() {
   let history = useHistory();
 
-    const { valueOneAccountOne, valueTwoAccountOne,AccountOneBalance  } = useContext(
-    AccountOneContext
-  );
+  const {
+    valueOneAccountTwo,
+    valueTwoAccountTwo,
+    AccountTwoBalance
+  } = useContext(AccountTwoContext);
 
-  const [IncomeOne] = valueOneAccountOne;
-  const [ExpensesOne] = valueTwoAccountOne;
+  const [IncomeTwo] = valueOneAccountTwo;
+  const [ExpensesTwo] = valueTwoAccountTwo;
 
-  const Merge = [...IncomeOne, ...ExpensesOne];
-//   console.log(Merge);
+  const Merge = [...IncomeTwo, ...ExpensesTwo];
+  //   console.log(Merge);
 
   //   List according to time of transaction
   const arranged = Merge.sort((a, b) => new Date(a.time) - new Date(b.time));
@@ -42,7 +44,7 @@ export default function DetailedListOne() {
             className="index-header-welcome"
             style={{ fontSize: "1.2rem", marginTop: "8px" }}
           >
-            Personal Account List
+            Business Account List
           </div>
           <div className="index-menu" title="menu">
             <Link style={LinkStyle} to="/about">
@@ -52,35 +54,42 @@ export default function DetailedListOne() {
         </div>
       </header>
       {/* <h3 style={{textAlign:"center", margin:"10px 0", textDecoration:"underline"}}>Personal Account</h3> */}
-      <div className="detailed-list-head">
+      <div className="detailed-list-head-two">
         <h4>Date</h4>
         <h4>Name</h4>
-        <h4>Amount(&#8358;)</h4>
+        <h4>Price</h4>
+        <h4>Units</h4>
+        <h4>Total(&#8358;)</h4>
       </div>
       <div>
         {arranged.map((list, index) => (
           <ul
-            className="det-list"
+            className="det-list-two"
             style={{
               background:
                 list.type === "Income" ? "rgb(50,205,50)" : "rgb(194,30,86)"
             }}
             key={index}
           >
-            <ul className="list">
+            <ul className="list-two">
               <li>{list.date}</li>
               <li>{list.name}</li>
+              <li>{Commas(list.unitPrice)}</li>
+              <li>{list.Units}</li>
               <li>{Commas(list.amount)}</li>
             </ul>
           </ul>
         ))}
       </div>
-      <div className="detailed-list-head">
-        <h4>{''}</h4>
-        <h4>{''}</h4>
-        <h3>Balance: &#8358;{Commas(AccountOneBalance)}</h3>
+      <div className="detailed-list-head-two">
+        <h4>{""}</h4>
+        <h4>{""}</h4>
+        <h4>{""}</h4>
+        <h3>Balance: &#8358;{Commas(AccountTwoBalance)}</h3>
       </div>
-      <div style={{ textAlign: "center", marginTop: "3rem", marginBottom:"10rem" }}>
+      <div
+        style={{ textAlign: "center", marginTop: "3rem", marginBottom: "10rem" }}
+      >
         <h3>
           Request a feature{" "}
           <a

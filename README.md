@@ -4,14 +4,17 @@
 
 NairaTrack is an expense and income tracker app with an easily understandable UI
 
-NairaTrack is exactly what you need to track your income and spendings.
+NairaTrack is exactly what you need to track your daily income and spendings.
 
-- Add income and expenses
-- Calculate total
-- All data is stored in a local storage
+- Input income and expenses
+- Get Balance
+- Extra "Unit" input in Business Account
+- Detailed transaction Lists
+- All data is stored in local storage
 
-ReactJs, ContextApi, PWA.
+ReactJs, ContextApi, PWA (install on home screen).
 
 Link: https://nairatrack.now.sh/
 
-Note* This app is a work in progress and I want to transform it to a fullstack app and possibly a mobile app
+Note* This app is a work in progress and I plan to transform it to a fullstack app and possibly a mobile app
+

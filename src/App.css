@@ -537,7 +537,7 @@ header {
 .det-list {
     padding: 10px 0;
     margin: 4px auto;
-    border-radius: 5px;
+    border-radius: 15px;
 
 }
 
@@ -577,7 +577,7 @@ header {
 .det-list-two {
     padding: 10px 0;
     margin: 4px auto;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .list-two {

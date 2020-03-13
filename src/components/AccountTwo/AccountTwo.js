@@ -170,7 +170,7 @@ const LinkStyle={
                 type="text"
                 placeholder="e.g Sales, Loan..."
                 required
-                maxLength="25"
+                maxLength="30"
                 value={Name}
                 onChange={handleNameChange}
               />

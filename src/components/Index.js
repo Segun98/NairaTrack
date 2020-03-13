@@ -150,8 +150,8 @@ setModalTwo(false);
           <button
             style={{
               border: "none",
-              color:"whitesmoke",
-              background: "rgb(160, 4, 4)",
+              color:"white",
+              background: "#B2BEC3",
               marginLeft: "5px",
               cursor: "pointer",
               display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'inline-block'
@@ -193,7 +193,7 @@ setModalTwo(false);
             style={{
               border: "none",
               color: "white",
-              background: "rgb(160, 4, 4)",
+              background: "#B2BEC3",
               marginLeft: "5px",
               cursor: "pointer",
               display: ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ? 'none' : 'inline-block',

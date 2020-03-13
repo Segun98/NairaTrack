@@ -139,11 +139,11 @@ const LinkStyle={
         </div>
       </section>
       <section className="full-list" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block' }}>
-        <button>
         <Link to="personal-account-detailed-list" style={LinkStyle}>
+        <button>
         View Detailed List
-        </Link>
         </button>
+        </Link>
       </section>
       <section className="add-new-transaction">
         <div className="new-transaction-header">

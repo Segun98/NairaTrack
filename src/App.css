@@ -26,14 +26,15 @@ h5,
 h6,
 h3,
 p {
-    color: rgb(99, 97, 97);
     color: black;
+    color: #636E72;
 }
 
 
 /* Index page styles */
 header {
     background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
     height: 90px;
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 3rem;
@@ -125,13 +126,14 @@ header {
 }
 
 .index-account-one button {
-    border: 1px solid rgb(36, 36, 39);
+    border: 1px solid #2D3436;
     background: none;
     background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
     padding: 5px 8px;
     margin-top: 10px;
     border-radius: 5px;
-    color: whitesmoke;
+    color: white;
 }
 
 /* INDEX PAGE BUSINESS ACCOUNT - ACCOUNT TWO*/
@@ -171,14 +173,14 @@ header {
 }
 
 .index-account-two button {
-    border: 1px solid rgb(36, 36, 39);
+    border: 1px solid #2D3436;
     background: none;
-    background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
     padding: 5px 8px;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
-    color: whitesmoke;
+    color: white;
 
 }
 
@@ -337,7 +339,6 @@ header {
 
 .deltebtn-expense {
     margin: 0 3px;
-    color: hotpink;
     color: #333;
     display: flex;
     align-items: center;
@@ -347,7 +348,6 @@ header {
 
 .deltebtn-income {
     margin: 0 3px;
-    color: hotpink;
     color: #333;
     display: flex;
     align-items: center;
@@ -435,9 +435,9 @@ header {
 
 .account-one-form button {
     margin-top: 5px;
-    border: 1px solid rgb(36, 36, 39);
+    border: 1px solid #2D3436;
     background: none;
-    background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
     padding: 5px 25px;
     border-radius: 5px;
     color: white;
@@ -448,14 +448,13 @@ header {
     width: 120px;
     border: none;
     background: none;
-    border-radius: 5px;
     border-bottom: 1px solid grey;
     padding: 7px 15px;
     outline: none;
 }
 
 .input-text:focus {
-    border-bottom: 1px solid hotpink;
+    border-bottom: 1px solid #DFE6E9;
 }
 
 .input-radio {
@@ -472,7 +471,7 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgb(46, 46, 48);
+    background: #2D3436;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -526,9 +525,9 @@ header {
 
 .full-list button {
     margin-top: 5px;
-    border: 1px solid rgb(36, 36, 39);
+    border: 1px solid #2D3436;
     background: none;
-    background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
     padding: 8px 10px;
     border-radius: 1rem;
     color: white;

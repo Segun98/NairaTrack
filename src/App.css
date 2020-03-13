@@ -594,6 +594,13 @@ header {
 .list-two li:first-child {
     font-size: 14px;
 }
+.list-two li:nth-child(3){
+    font-size: 14px;
+}
+.list-two li:last-child {
+    font-size: 14px;
+}
+
 
 .list-two li {
     color: white;

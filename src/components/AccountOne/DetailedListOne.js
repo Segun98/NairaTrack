@@ -80,7 +80,7 @@ export default function DetailedListOne() {
         <h4>{''}</h4>
         <h3>Balance: &#8358;{Commas(AccountOneBalance)}</h3>
       </div>
-      <div style={{ textAlign: "center", marginTop: "3rem", marginBottom:"10rem" }}>
+      <div style={{ textAlign: "center", marginTop: "3rem", marginBottom:"14rem" }}>
         <h3>
           Request a feature{" "}
           <a

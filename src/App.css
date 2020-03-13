@@ -586,20 +586,22 @@ header {
     display: grid;
     display: -moz-grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
     margin: auto;
-    width: 95%;
+    width: 98%;
+    
 }
 
 .list-two li:first-child {
     font-size: 14px;
 }
-.list-two li:nth-child(3){
+
+/* .list-two li:nth-child(3){
     font-size: 14px;
 }
 .list-two li:last-child {
     font-size: 14px;
-}
+} */
 
 
 .list-two li {
@@ -611,11 +613,12 @@ header {
     display: grid;
     display: -moz-grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
     margin: auto;
-    width: 95%;
+    width: 98%;
     text-align: center;
     margin-top: 1rem;
+    place-items: center;
 }
 
 

@@ -1,17 +1,20 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-
-
 export default function About() {
-
   let history = useHistory();
   return (
     <div className="about-page">
       <header>
         <div className="index-header-wrap">
-          <div className="homeNav" title="Back" onClick={ ()=> { history.goBack() }}>
-              <i className="fas fa-long-arrow-alt-left"></i>
+          <div
+            className="homeNav"
+            title="Back"
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            <i className="fas fa-long-arrow-alt-left"></i>
           </div>
           <div className="index-header-welcome" style={{ fontSize: "1.2rem" }}>
             About NairaTrack{" "}
@@ -21,9 +24,9 @@ export default function About() {
           </div>
         </div>
       </header>
-      <div style={{textAlign:'center', marginTop:'2rem'}}>
+      <div style={{ textAlign: "center", marginTop: "2rem" }}>
         <img
-          style={{ width: "104px", height: "104px", borderRadius:'1rem' }}
+          style={{ width: "104px", height: "104px", borderRadius: "1rem" }}
           src="nairatrack-64.png"
           alt="logo"
         />
@@ -33,24 +36,27 @@ export default function About() {
           <p>
             NairaTrack is an expense and income tracker app with a simple user
             interface and experience. NairaTrack is exactly what you need to
-            track your daily income and spendings.{" "}
+            track your daily income and spendings. NairaTack helps you Budget
+            and Manage your money and this helps you plan for the future.{" "}
           </p>
           <br />
           <p>
             All data is stored in your browser's local storage and not
             accessible by the developer. This app was built with ReactJs, using
-            the ContextApi and it is a Progressive Web App (PWA). You can proceed
-            to <strong> install on your home screen.</strong>{" "}
+            the ContextApi and it is a Progressive Web App (PWA). You can
+            proceed to <strong> install on your home screen.</strong>{" "}
           </p>
-          <br/>
-          <p>Request a feature{" "}
-          <a
-            href="https://segunos.tk/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            here
-          </a></p>
+          <br />
+          <p>
+            Request a feature{" "}
+            <a
+              href="https://segunos.tk/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </a>
+          </p>
           <br />
           <p>
             This app was developed by Segun Olanitori, a Front-End Developer

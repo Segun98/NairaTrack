@@ -67,7 +67,7 @@ export default function DetailedListOne() {
             className="det-list-two"
             style={{
               background:
-                list.type === "Income" ? "rgb(50,205,50)" : "rgb(194,30,86)"
+                list.type === "Income" ? "#32cd32" : "#ff0000"
             }}
             key={index}
           >

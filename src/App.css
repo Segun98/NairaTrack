@@ -71,7 +71,18 @@ header {
     text-align: center;
     margin: auto;
     width: 60%;
+    animation: quotes forwards 0.9s ease-in-out ;
 }
+
+@keyframes quotes {
+    0% {
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+
 
 .index-account-one-two-wrap {
     margin-top: 3rem;
@@ -94,8 +105,28 @@ header {
     box-shadow: 2px 2px 2px 2px rgb(143, 143, 143);
     border-radius: 1rem;
     padding: 10px 0;
+    transition: ease-in 0.3s;
 }
 
+.index-account-one-box:hover {
+    transform: scale(1.05);
+}
+.index-account-one-box:hover h4{
+    animation: personal forwards 0.2s ease-in-out ;
+}
+
+@keyframes personal {
+    0% {
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(-10deg);
+
+    }
+    100%{
+        transform: none;
+    }
+}
 
 .index-account-one-box h4 {
     text-align: center;
@@ -155,7 +186,25 @@ header {
     text-align: center;
 
 }
+.index-account-two-box:hover {
+    transform: scale(1.05);
+}
+.index-account-two-box:hover h4{
+    animation: business forwards 0.2s ease-in-out ;
+}
 
+@keyframes business {
+    0% {
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(-10deg);
+
+    }
+    100%{
+        transform: none;
+    }
+}
 
 
 .index-account-two-income {
@@ -205,6 +254,17 @@ header {
     box-shadow: 2px 2px 2px 2px rgb(87, 87, 87);
     border-radius: 1rem;
     padding: 15px 0;
+    animation: box-one forwards 0.9s ease-in-out ;
+
+}
+
+@keyframes box-one {
+    0% {
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1)
+    }
 }
 
 .acct-one-box h4 {
@@ -333,7 +393,7 @@ header {
     gap: 1px;
     font-size: 0.9rem;
     width: 100%;
-    color: rgb(99, 97, 97)
+    color: rgb(99, 97, 97);
 }
 
 .deltebtn-expense {

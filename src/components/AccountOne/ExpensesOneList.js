@@ -46,7 +46,7 @@ export default function ExpensesOneList({ name, date, amount, index }) {
           <div className="name" title={name}>
             {name}
           </div>
-          <div className="amount" title={Commas(amount)}>
+          <div className="amount" title={Commas(amount)} style={{color:'red'}}>
             {Commas(amount)}
           </div>
         </div>

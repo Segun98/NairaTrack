@@ -51,7 +51,7 @@ export default function IncomeTwoList({ name, date, amount, index }) {
           <div className="name" title={name}>
             {name}
           </div>
-          <div className="amount" title={Commas(amount)}>
+          <div className="amount" title={Commas(amount)} style={{color:'green'}}>
             {Commas(amount)}
           </div>
         </div>

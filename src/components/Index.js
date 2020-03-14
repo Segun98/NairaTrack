@@ -57,7 +57,7 @@ export default function Index() {
   }
   // Quotes
   const quotes = [
-    "It is important to track every of your daily transactions, start accounting and see the difference!",
+    "It is important to track every of your daily transactions, start accounting and see the difference! Remember to share this app with someone",
     "Accounting is the language of business - Warren Buffett",
     "Do not save what is left after spending; instead spend what is left after saving - Warren Buffett",
     "The principles of wealth are true regarding large amounts and small amounts. It all begins with the smallest unit of currency - Hendrith Smith",
@@ -65,7 +65,7 @@ export default function Index() {
   ];
 
   // 2. Generate random number between 0 and quotes' length
-  const random = Math.floor(Math.random() * ((quotes.length - 1) - 0 + 1)) + 0;
+  const random = Math.floor(Math.random() * (quotes.length - 1 - 0 + 1)) + 0;
 
   //3. display quotes based on the generated random number
   const displayQuotes = quotes[random];
@@ -83,9 +83,7 @@ export default function Index() {
       </header>
       <section className="random-quotes">
         <div className="quotes">
-          <h4>
-            "{displayQuotes}"
-          </h4>
+          <h4>"{displayQuotes}"</h4>
         </div>
       </section>
 

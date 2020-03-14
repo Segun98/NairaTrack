@@ -26,52 +26,65 @@ export default function Index() {
   const [IncomeTwo, setIncomeTwo] = valueOneAccountTwo;
   const [ExpensesTwo, setExpensesTwo] = valueTwoAccountTwo;
 
-  const LinkStyle={
-    textDecoration:'none',
-    color:'whitesmoke'
-}
+  const LinkStyle = {
+    textDecoration: "none",
+    color: "whitesmoke"
+  };
 
-const [Modal, setModal] = useState(true);
-const [ModalTwo, setModalTwo] = useState(true)
+  const [Modal, setModal] = useState(true);
+  const [ModalTwo, setModalTwo] = useState(true);
 
-function handleDelete() {
-      const newAccountOne = [...IncomeOne, ...ExpensesOne];
-      newAccountOne.splice(0, newAccountOne.length);
-      setIncomeOne(newAccountOne);
-      setExpensesOne(newAccountOne);
-  setModal(true);
-}
-function deleteItem() {
-  setModal(false);
-}
+  function handleDelete() {
+    const newAccountOne = [...IncomeOne, ...ExpensesOne];
+    newAccountOne.splice(0, newAccountOne.length);
+    setIncomeOne(newAccountOne);
+    setExpensesOne(newAccountOne);
+    setModal(true);
+  }
+  function deleteItem() {
+    setModal(false);
+  }
 
-function handleDeleteTwo() {
-  const newAccountTwo = [...IncomeTwo, ...ExpensesTwo];
-  newAccountTwo.splice(0, newAccountTwo.length);
-  setIncomeTwo(newAccountTwo);
-  setExpensesTwo(newAccountTwo);
-setModalTwo(true);
-}
-function deleteItemTwo() {
-setModalTwo(false);
-}
+  function handleDeleteTwo() {
+    const newAccountTwo = [...IncomeTwo, ...ExpensesTwo];
+    newAccountTwo.splice(0, newAccountTwo.length);
+    setIncomeTwo(newAccountTwo);
+    setExpensesTwo(newAccountTwo);
+    setModalTwo(true);
+  }
+  function deleteItemTwo() {
+    setModalTwo(false);
+  }
+  // Quotes
+  const quotes = [
+    "It is important to track every of your daily transactions, start accounting and see the difference!",
+    "Accounting is the language of business - Warren Buffett",
+    "Do not save what is left after spending; instead spend what is left after saving - Warren Buffett",
+    "The principles of wealth are true regarding large amounts and small amounts. It all begins with the smallest unit of currency - Hendrith Smith",
+    "Look everywhere you can to cut a little bit from your expenses. It will all add up to a meaningful sum - Suze Orman"
+  ];
+
+  // 2. Generate random number between 0 and quotes' length
+  const random = Math.floor(Math.random() * ((quotes.length - 1) - 0 + 1)) + 0;
+
+  //3. display quotes based on the generated random number
+  const displayQuotes = quotes[random];
   return (
     <section className="index-page">
       <header>
         <div className="index-header-wrap">
           <div className="index-header-welcome">Hi, User!</div>
           <div className="index-menu" title="menu">
-          <Link style={LinkStyle} to ='/about'>
-          <i className="fas fa-ellipsis-h"></i>
-          </Link>
+            <Link style={LinkStyle} to="/about">
+              <i className="fas fa-ellipsis-h"></i>
+            </Link>
           </div>
         </div>
       </header>
       <section className="random-quotes">
         <div className="quotes">
           <h4>
-            "It is important to track every of your daily transactions, start
-            accounting and see the difference!"
+            "{displayQuotes}"
           </h4>
         </div>
       </section>
@@ -89,7 +102,10 @@ setModalTwo(false);
             </p>
           </div>
           <div className="modal-body">
-            <h4>Are you sure you want to delete PERSONAL ACCOUNT? All data will be lost and cannot be recovered.</h4>
+            <h4>
+              Are you sure you want to delete PERSONAL ACCOUNT? All data will be
+              lost and cannot be recovered.
+            </h4>
           </div>
           <div className="modal-footer">
             <div></div>
@@ -111,7 +127,10 @@ setModalTwo(false);
             </p>
           </div>
           <div className="modal-body">
-            <h4>Are you sure you want to delete BUSINESS ACCOUNT? All data will be lost and cannot be recovered.</h4>
+            <h4>
+              Are you sure you want to delete BUSINESS ACCOUNT? All data will be
+              lost and cannot be recovered.
+            </h4>
           </div>
           <div className="modal-footer">
             <div></div>
@@ -142,7 +161,7 @@ setModalTwo(false);
           <button>
             <Link
               to="/account-one"
-              style={{ textDecoration: "none", color:"whitesmoke" }}
+              style={{ textDecoration: "none", color: "whitesmoke" }}
             >
               Manage
             </Link>
@@ -150,11 +169,16 @@ setModalTwo(false);
           <button
             style={{
               border: "none",
-              color:"white",
+              color: "white",
               background: "#B2BEC3",
               marginLeft: "5px",
               cursor: "pointer",
-              display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'inline-block'
+              display:
+                ExpensesOneTotal === 0 &&
+                incomeOneTotal === 0 &&
+                AccountOneBalance === 0
+                  ? "none"
+                  : "inline-block"
             }}
             title="Delete"
             onClick={deleteItem}
@@ -196,8 +220,12 @@ setModalTwo(false);
               background: "#B2BEC3",
               marginLeft: "5px",
               cursor: "pointer",
-              display: ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ? 'none' : 'inline-block',
-              
+              display:
+                ExpensesTwoTotal === 0 &&
+                incomeTwoTotal === 0 &&
+                AccountTwoBalance === 0
+                  ? "none"
+                  : "inline-block"
             }}
             title="Delete"
             onClick={deleteItemTwo}

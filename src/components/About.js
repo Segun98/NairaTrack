@@ -1,29 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 export default function About() {
-  let history = useHistory();
   return (
     <div className="about-page">
-      <header>
-        <div className="index-header-wrap">
-          <div
-            className="homeNav"
-            title="Back"
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            <i className="fas fa-long-arrow-alt-left"></i>
-          </div>
-          <div className="index-header-welcome" style={{ fontSize: "1.2rem" }}>
-            About NairaTrack{" "}
-          </div>
-          <div className="index-menu" title="menu">
-            <i className="fas fa-ellipsis-h"></i>
-          </div>
-        </div>
-      </header>
       <div style={{ textAlign: "center", marginTop: "2rem" }}>
         <img
           style={{ width: "104px", height: "104px", borderRadius: "1rem" }}
@@ -55,13 +34,19 @@ export default function About() {
               rel="noopener noreferrer"
             >
               here
-            </a>
+            </a>{" "}
+            <span style={{ fontSize: "10px" }}>
+              <i className="fas fa-external-link-alt"></i>
+            </span>
           </p>
           <br />
           <p>
             This app was developed by Segun Olanitori, a Front-End Developer
             passionate about creating useful solutions on the web. Find More
-            about me <a href="https://segunos.tk">Here</a>
+            about me <a href="https://segunos.tk">Here</a>{" "}
+            <span style={{ fontSize: "10px" }}>
+              <i className="fas fa-external-link-alt"></i>
+            </span>
           </p>
           <br />
           <p>

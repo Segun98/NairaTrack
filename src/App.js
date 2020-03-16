@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import About from './components/About'
 import DetailedListOne from './components/AccountOne/DetailedListOne'
 import DetailedListTwo from './components/AccountTwo/DetailedListTwo'
+import Header from './components/Header'
+import Settings from './components/Settings'
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <AccountOneProvider>
         <Router>
           <div className="App">
+          <Header />
             <Switch>
               <Route path="/" exact component={Index} />
               <Route path="/account-one" component={AccountOne} />
@@ -24,6 +27,7 @@ function App() {
               <Route path="/about" component={About} />
               <Route path="/personal-account-detailed-list" component={DetailedListOne} />
               <Route path="/business-account-detailed-list" component={DetailedListTwo} />
+              <Route path="/settings" component={Settings} />
             </Switch>
             <Footer />
           </div>

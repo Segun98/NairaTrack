@@ -58,9 +58,10 @@ header {
 .index-menu .fas {
     font-weight: bold;
     color: rgb(224, 220, 220);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     cursor: pointer;
     /* padding-top: 0.6rem; */
+    transition: 0.5s ease;
 }
 
 .random-quotes {
@@ -71,14 +72,15 @@ header {
     text-align: center;
     margin: auto;
     width: 60%;
-    animation: quotes forwards 0.9s ease-in-out ;
+    animation: quotes forwards 0.9s ease-in-out;
 }
 
 @keyframes quotes {
     0% {
         transform: scale(0);
     }
-    100%{
+
+    100% {
         transform: scale(1)
     }
 }
@@ -111,19 +113,22 @@ header {
 .index-account-one-box:hover {
     transform: scale(1.05);
 }
-.index-account-one-box:hover h4{
-    animation: personal forwards 0.2s ease-in-out ;
+
+.index-account-one-box:hover h4 {
+    animation: personal forwards 0.2s ease-in-out;
 }
 
 @keyframes personal {
     0% {
         transform: rotate(10deg);
     }
-    50%{
+
+    50% {
         transform: rotate(-10deg);
 
     }
-    100%{
+
+    100% {
         transform: none;
     }
 }
@@ -186,22 +191,26 @@ header {
     text-align: center;
 
 }
+
 .index-account-two-box:hover {
     transform: scale(1.05);
 }
-.index-account-two-box:hover h4{
-    animation: business forwards 0.2s ease-in-out ;
+
+.index-account-two-box:hover h4 {
+    animation: business forwards 0.2s ease-in-out;
 }
 
 @keyframes business {
     0% {
         transform: rotate(10deg);
     }
-    50%{
+
+    50% {
         transform: rotate(-10deg);
 
     }
-    100%{
+
+    100% {
         transform: none;
     }
 }
@@ -254,7 +263,7 @@ header {
     box-shadow: 2px 2px 2px 2px rgb(87, 87, 87);
     border-radius: 1rem;
     padding: 15px 0;
-    animation: box-one forwards 0.9s ease-in-out ;
+    animation: box-one forwards 0.9s ease-in-out;
 
 }
 
@@ -262,7 +271,8 @@ header {
     0% {
         transform: scale(0);
     }
-    100%{
+
+    100% {
         transform: scale(1)
     }
 }
@@ -647,7 +657,7 @@ header {
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
     margin: auto;
     width: 98%;
-    
+
 }
 
 .list-two li:first-child {
@@ -765,6 +775,46 @@ header {
     color: whitesmoke;
 }
 
+/* Navigation Styles  */
+.navigation {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: whitesmoke;
+    margin-left: -300px;
+    transition: 0.5s ease;
+}
+
+.navigation.open-nav {
+    margin-left: 0;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.navigation li {
+    padding: 10px 0;
+    border-bottom: 1px solid grey;
+    color: black;
+}
+
+.hi-style {
+    font-size: 1.8rem;
+}
+
+
+/* End nav  */
 
 /* ACCOUNT TWO BUSINESS ACCOUNT */
 
@@ -782,5 +832,16 @@ header {
         position: static;
 
     }
+
+    .navigation {
+        position: absolute;
+        width: 30%;
+        margin-left: -400px;
+    }
+
+    .navigation.open-nav {
+        margin-left: 0;
+    }
+
 
 }

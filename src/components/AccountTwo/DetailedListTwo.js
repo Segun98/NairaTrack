@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { AccountTwoContext } from "../../Contexts/AccountTwo";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Commas from "../../Commas";
 
 export default function DetailedListOne() {
-  let history = useHistory();
+  // let history = useHistory();
 
   const {
     valueOneAccountTwo,
@@ -23,43 +21,15 @@ export default function DetailedListOne() {
   const arranged = Merge.sort((a, b) => new Date(a.time) - new Date(b.time));
   //new Date().toLocaleString()
 
-  const LinkStyle = {
-    textDecoration: "none",
-    color: "whitesmoke"
-  };
   return (
     <div className="detailed-list">
-      <header>
-        <div className="index-header-wrap">
-          <div
-            className="homeNav"
-            title="Back"
-            onClick={() => {
-              history.goBack();
-            }}
-          >
-            <i className="fas fa-long-arrow-alt-left"></i>
-          </div>
-          <div
-            className="index-header-welcome"
-            style={{ fontSize: "1.2rem", marginTop: "8px" }}
-          >
-            Business Account List
-          </div>
-          <div className="index-menu" title="menu">
-            <Link style={LinkStyle} to="/about">
-              <i className="fas fa-ellipsis-h"></i>
-            </Link>
-          </div>
-        </div>
-      </header>
       {/* <h3 style={{textAlign:"center", margin:"10px 0", textDecoration:"underline"}}>Personal Account</h3> */}
       <div className="detailed-list-head-two">
         <h4>Date</h4>
         <h4>Name</h4>
         <h4>Price</h4>
         <h4>Units</h4>
-        <h4>Total(&#8358;)</h4>
+        <h4>Total</h4>
       </div>
       <div>
         {arranged.map((list, index) => (
@@ -92,14 +62,7 @@ export default function DetailedListOne() {
         style={{ textAlign: "center", marginTop: "3rem", marginBottom: "14rem" }}
       >
         <h3>
-          Request a feature{" "}
-          <a
-            href="https://segunos.tk/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            here
-          </a>
+         {" "}
         </h3>
       </div>
     </div>

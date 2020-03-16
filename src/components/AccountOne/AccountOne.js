@@ -4,13 +4,9 @@ import { AccountOneContext } from "../../Contexts/AccountOne";
 import IncomeOneList from "./IncomeOneList";
 import ExpensesOneList from "./ExpensesOneList";
 import Commas from "../../Commas";
-import { useHistory } from "react-router-dom";
 
 
 export default function AccountOne() {
-
-  let history = useHistory();
-
   //Radio Option State
   const [Option, setOption] = useState("");
 
@@ -75,17 +71,6 @@ const LinkStyle={
 }
   return (
     <div className="account-one-page">
-      <header>
-        <div className="index-header-wrap">
-          <div className="homeNav" title="Back" onClick={ ()=> { history.goBack() }}>
-            <i className="fas fa-long-arrow-alt-left"></i>
-          </div>
-          <div className="index-header-welcome" style={{fontSize:"1.2rem"}}>Personal Account</div>
-          <div className="index-menu" title="menu">
-          <Link style={LinkStyle} to ='/about'>
-          <i className="fas fa-ellipsis-h"></i></Link></div>
-        </div>
-      </header>
       <section className="acct-one-balance" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block'}}>
         <div className="acct-one-box">
           <h4>Balance</h4>

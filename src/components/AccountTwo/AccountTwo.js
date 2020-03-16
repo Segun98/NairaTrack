@@ -4,11 +4,11 @@ import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import IncomeTwoList from "./IncomeTwoList";
 import ExpensesTwoList from "./ExpensesTwoList";
 import Commas from "../../Commas";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 export default function AccountTwo() {
-  let history = useHistory();
+  // let history = useHistory();
 
   //Radio Option State
   const [Option, setOption] = useState("");
@@ -85,7 +85,7 @@ const LinkStyle={
 }
   return (
     <div className="account-One-page">
-      <header>
+      {/* <header>
         <div className="index-header-wrap">
           <div className="homeNav" title="Back" onClick={ ()=> { history.goBack() }} >
             <i className="fas fa-long-arrow-alt-left"></i>
@@ -94,7 +94,7 @@ const LinkStyle={
           <div className="index-menu" title="menu"><Link style={LinkStyle} to ='/about'>
           <i className="fas fa-ellipsis-h"></i></Link></div>
         </div>
-      </header>
+      </header> */}
       <section className="acct-one-balance" style={{display: ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ? 'none' : 'block'}}>
         <div className="acct-one-box">
           <h4>Balance</h4>

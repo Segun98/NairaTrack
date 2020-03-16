@@ -26,10 +26,10 @@ export default function Index() {
   const [IncomeTwo, setIncomeTwo] = valueOneAccountTwo;
   const [ExpensesTwo, setExpensesTwo] = valueTwoAccountTwo;
 
-  const LinkStyle = {
-    textDecoration: "none",
-    color: "whitesmoke"
-  };
+  // const LinkStyle = {
+  //   textDecoration: "none",
+  //   color: "whitesmoke"
+  // };
 
   const [Modal, setModal] = useState(true);
   const [ModalTwo, setModalTwo] = useState(true);
@@ -71,16 +71,6 @@ export default function Index() {
   const displayQuotes = quotes[random];
   return (
     <section className="index-page">
-      <header>
-        <div className="index-header-wrap">
-          <div className="index-header-welcome">Hi, User!</div>
-          <div className="index-menu" title="menu">
-            <Link style={LinkStyle} to="/about">
-              <i className="fas fa-ellipsis-h"></i>
-            </Link>
-          </div>
-        </div>
-      </header>
       <section className="random-quotes">
         <div className="quotes">
           <h4>"{displayQuotes}"</h4>

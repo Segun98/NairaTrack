@@ -55,10 +55,11 @@ export default function Header() {
               setNav(!Nav);
             }}
           >
-            <i
+          <i style={{ display: Nav ? "block" : "none" }} className="fas fa-bars"></i>
+            {/* <i
               style={{ display: Nav ? "block" : "none" }}
               className="fas fa-ellipsis-h"
-            ></i>
+            ></i> */}
             <i
               style={{ display: Nav ? "none" : "block" }}
               className="fas fa-times"

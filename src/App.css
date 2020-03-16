@@ -816,7 +816,42 @@ header {
 
 /* End nav  */
 
-/* ACCOUNT TWO BUSINESS ACCOUNT */
+
+/* SETTINGS PAGE  */
+
+.settings-page{
+    border: 3px solid #333;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    height: 100vh;
+}
+
+.settings-page button{
+    border: 1px solid #2D3436;
+    background: none;
+    background-color: rgb(36, 36, 39);
+    background-color: #2D3436;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.settings-page form{
+    text-align: center;
+}
+.setting-input{
+    border: none;
+    background: whitesmoke;
+    font-size: 18px;
+    border-bottom: 1px solid grey;
+    outline: none;
+    width: 100px;
+}
+
+
+/* ENd  */
 
 @media only screen and (min-width:480px) {
     html {

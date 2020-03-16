@@ -152,6 +152,7 @@ const LinkStyle={
         <form
           className="account-one-form"
           onSubmit={handleFormSubmit}
+          autoComplete="on"
         >
           <div className="add-transaction-input">
             <div>
@@ -164,6 +165,7 @@ const LinkStyle={
                 maxLength="25"
                 value={Name}
                 onChange={handleNameChange}
+                autoComplete="on"
               />
             </div>
             <div>
@@ -178,6 +180,7 @@ const LinkStyle={
                 required
                 value={Amount}
                 onChange={handleAmountChange}
+                autoComplete="off"
               />
             </div>
           </div>

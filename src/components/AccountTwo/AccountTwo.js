@@ -161,6 +161,7 @@ const LinkStyle={
         <form
           className="account-one-form"
           onSubmit={handleFormSubmit}
+          autoComplete="on"
         >
           <div className="add-transaction-input">
             <div>
@@ -172,6 +173,7 @@ const LinkStyle={
                 required
                 maxLength="30"
                 value={Name}
+                autoComplete="on"
                 onChange={handleNameChange}
               />
             </div>
@@ -187,6 +189,7 @@ const LinkStyle={
                 required
                 value={Amount}
                 onChange={handleAmountChange}
+                autoComplete="off"
               />
             </div>
             <div style={{marginTop:"5px"}}>
@@ -198,6 +201,7 @@ const LinkStyle={
                 pattern="[0-9]*"
                 maxLength="4" value={Units} 
                 onChange={handleUnits}
+                autoComplete="off"
               />
             </div>
           </div>

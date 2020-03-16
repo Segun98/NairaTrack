@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
+import { AccountOneContext } from "../Contexts/AccountOne";
 
 export default function Header() {
+
+  const {
+    Name
+  } = useContext(AccountOneContext);
+
+
   let location = useLocation();
   let history = useHistory();
 
   // Change text on header based on location
   function headerName() {
     if (location.pathname === "/") {
-      return <div className="hi-style">Hi, User!</div>;
+      return <div className="hi-style">Hi {Name}!</div>;
     } else if (location.pathname === "/account-one") {
       return "Personal Account";
     } else if (location.pathname === "/account-two") {

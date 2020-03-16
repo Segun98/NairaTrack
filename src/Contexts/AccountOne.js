@@ -3,27 +3,26 @@ import React, { createContext, useState, useEffect } from "react";
 export const AccountOneContext = createContext();
 
 export function AccountOneProvider(props) {
-
   //const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   const [IncomeOne, setIncomeOne] = useState(StoreIncomeOne);
   const [ExpensesOne, setExpensesOne] = useState(StoreExpensesOne);
 
   //Mapped through the amounts
-  const IncomeOneAmounts = IncomeOne.map(incomeOne => incomeOne.amount)
+  const IncomeOneAmounts = IncomeOne.map(incomeOne => incomeOne.amount);
 
-  const ExpensesOneAmounts = ExpensesOne.map(expensesOne => expensesOne.amount)
-
+  const ExpensesOneAmounts = ExpensesOne.map(expensesOne => expensesOne.amount);
 
   //console.log(`${IncomeOneAmounts} ${ExpensesOneAmounts}`);
 
-
   //found the total
 
-  const incomeOneTotal = IncomeOneAmounts.reduce((acc, item)=> (acc + item), 0)
+  const incomeOneTotal = IncomeOneAmounts.reduce((acc, item) => acc + item, 0);
   //console.log(incomeOneTotal);
-  
 
-  const ExpensesOneTotal = ExpensesOneAmounts.reduce((acc, item)=> (acc + item), 0)
+  const ExpensesOneTotal = ExpensesOneAmounts.reduce(
+    (acc, item) => acc + item,
+    0
+  );
 
   //console.log(ExpensesOneTotal);
 
@@ -31,9 +30,6 @@ export function AccountOneProvider(props) {
 
   const AccountOneBalance = incomeOneTotal - ExpensesOneTotal;
   //console.log(AccountOneBalance);
-  
-  
-  
 
   //PERSIST INPUTS TO LOCAL STORAGE
 
@@ -42,7 +38,7 @@ export function AccountOneProvider(props) {
   }, [IncomeOne]);
 
   function StoreIncomeOne() {
-    const SavedIncomeOne= JSON.parse(localStorage.getItem("incomeOne"));
+    const SavedIncomeOne = JSON.parse(localStorage.getItem("incomeOne"));
     return SavedIncomeOne || [];
   }
 
@@ -51,19 +47,35 @@ export function AccountOneProvider(props) {
   }, [ExpensesOne]);
 
   function StoreExpensesOne() {
-    const SavedExpensesOne= JSON.parse(localStorage.getItem("expensesOne"));
+    const SavedExpensesOne = JSON.parse(localStorage.getItem("expensesOne"));
     return SavedExpensesOne || [];
   }
 
+  // Change Name
+
+  const [Name, setName] = useState(StoreName);
+  const [inputName, setinputName] = useState("");
+  useEffect(() => {
+    localStorage.setItem("name", JSON.stringify(Name));
+  }, [Name]);
+
+  function StoreName() {
+    const SavedName = JSON.parse(localStorage.getItem("name"));
+    return SavedName || [];
+  }
 
   return (
     <AccountOneContext.Provider
       value={{
         valueOneAccountOne: [IncomeOne, setIncomeOne],
         valueTwoAccountOne: [ExpensesOne, setExpensesOne],
-        incomeOneTotal:incomeOneTotal,
-        ExpensesOneTotal:ExpensesOneTotal,
-        AccountOneBalance:AccountOneBalance
+        incomeOneTotal: incomeOneTotal,
+        ExpensesOneTotal: ExpensesOneTotal,
+        AccountOneBalance: AccountOneBalance,
+        Name,
+        setName,
+        inputName,
+        setinputName
       }}
     >
       {props.children}
@@ -91,7 +103,6 @@ export function AccountOneProvider(props) {
 //   amount: 5000,
 //   category: 'Income'
 // }
-
 
 // {
 //   id:2,

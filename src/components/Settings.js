@@ -144,7 +144,7 @@ export default function Settings() {
           </h4>
         </div>
         <div className="delete-accounts-wrap">
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column"}}>
             <h3>Personal Account</h3>
             <p>Delete all transactions data from Personal Account</p>
           </div>

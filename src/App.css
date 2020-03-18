@@ -13,8 +13,10 @@ html {
 
 body {
     background: whitesmoke;
+    background: ghostwhite;
     font-family: 'Be Vietnam', sans-serif;
     font-family: 'Sen', sans-serif;
+
 }
 
 li {
@@ -32,8 +34,8 @@ p {
 
 /* Index page styles */
 header {
-    background-color: rgb(36, 36, 39);
     background-color: #2D3436;
+    background-color: #50bfbf;
     height: 90px;
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 3rem;
@@ -108,7 +110,9 @@ header {
     border-radius: 1rem;
     padding: 10px 0;
     transition: ease-in 0.3s;
+    background: whitesmoke;
 }
+
 
 .index-account-one-box:hover {
     transform: scale(1.05);
@@ -161,10 +165,10 @@ header {
 }
 
 .index-account-one button {
-    border: 1px solid #2D3436;
+    border: 1px solid #85bf4b;
     background: none;
-    background-color: rgb(36, 36, 39);
     background-color: #2D3436;
+    background-color: #85bf4b;
     padding: 5px 8px;
     margin-top: 10px;
     border-radius: 5px;
@@ -185,6 +189,7 @@ header {
     box-shadow: 2px 2px 2px 2px rgb(143, 143, 143);
     border-radius: 1rem;
     padding: 10px 0;
+    background: whitesmoke;
 }
 
 .index-account-two-box h4 {
@@ -230,9 +235,10 @@ header {
 }
 
 .index-account-two button {
-    border: 1px solid #2D3436;
+    border: 1px solid #85bf4b;
     background: none;
     background-color: #2D3436;
+    background-color: #85bf4b;
     padding: 5px 8px;
     margin-top: 10px;
     border-radius: 5px;
@@ -504,9 +510,10 @@ header {
 
 .account-one-form button {
     margin-top: 5px;
-    border: 1px solid #2D3436;
+    border: 1px solid #85bf4b;
     background: none;
     background-color: #2D3436;
+    background-color: #85bf4b;
     padding: 5px 25px;
     border-radius: 5px;
     color: white;
@@ -541,6 +548,7 @@ header {
     left: 0;
     right: 0;
     background: #2D3436;
+    background: #50bfbf;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -594,9 +602,9 @@ header {
 
 .full-list button {
     margin-top: 5px;
-    border: 1px solid #2D3436;
+    border: 1px solid #85bf4b;
     background: none;
-    background-color: #2D3436;
+    background-color: #85bf4b;
     padding: 8px 10px;
     border-radius: 1rem;
     color: white;
@@ -605,9 +613,10 @@ header {
 }
 
 .det-list {
-    padding: 10px 0;
-    margin: 4px auto;
+    padding: 5px 0;
+    margin: 5px auto;
     border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(143, 143, 143);
 
 }
 
@@ -622,7 +631,6 @@ header {
 }
 
 .list li {
-    color: white;
     text-align: center;
 }
 
@@ -645,9 +653,10 @@ header {
 /* Business Account */
 
 .det-list-two {
-    padding: 10px 0;
-    margin: 4px auto;
+    padding: 5px 0;
+    margin: 5px auto;
     border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(143, 143, 143);
 }
 
 .list-two {
@@ -673,7 +682,6 @@ header {
 
 
 .list-two li {
-    color: white;
     text-align: center;
 }
 
@@ -768,7 +776,7 @@ header {
 
 .modal-footer button {
     background: none;
-    background-color: rgb(36, 36, 39);
+    background-color: #85bf4b;
     padding: 5px 8px;
     border: none;
     cursor: pointer;
@@ -819,18 +827,17 @@ header {
 
 /* SETTINGS PAGE  */
 
-.settings-page{
-    border: 3px solid #333;
+.settings-page {
     padding: 10px 10px;
     margin: 10px 10px;
     height: 100vh;
 }
 
-.settings-page button{
-    border: 1px solid #2D3436;
+.settings-page button {
+    border: 1px solid #85bf4b;
     background: none;
     background-color: rgb(36, 36, 39);
-    background-color: #2D3436;
+    background-color: #85bf4b;
     padding: 5px 8px;
     border-radius: 5px;
     color: white;
@@ -838,10 +845,11 @@ header {
     cursor: pointer;
 }
 
-.settings-page form{
+.settings-page form {
     text-align: center;
 }
-.setting-input{
+
+.setting-input {
     border: none;
     background: whitesmoke;
     font-size: 18px;
@@ -849,6 +857,23 @@ header {
     outline: none;
     width: 100px;
 }
+
+.delete-accounts {
+    margin-top: 40px;
+}
+
+.delete-accounts-wrap {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    place-items: center;
+}
+
+.delete-accounts-wrap button{
+    width: 70px;
+    height: 30px;
+}
+
+
 
 
 /* ENd  */

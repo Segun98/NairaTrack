@@ -33,15 +33,13 @@ export default function DetailedListOne() {
       </div>
       <div>
         {arranged.map((list, index) => (
-          <ul
-            className="det-list-two"
-            style={{
-              background:
-                list.type === "Income" ? "#32cd32" : "#ff0000"
-            }}
-            key={index}
-          >
-            <ul className="list-two">
+          <ul className="det-list-two" key={index}>
+            <ul
+              className="list-two"
+              style={{
+                color: list.type === "Income" ? "#32cd32" : "#ff0000"
+              }}
+            >
               <li>{list.date}</li>
               <li>{list.name}</li>
               <li>{Commas(list.unitPrice)}</li>
@@ -56,14 +54,18 @@ export default function DetailedListOne() {
         <h4>{""}</h4>
         <h4>{""}</h4>
         <h4>{""}</h4>
-        <h3>Balance: &#8358;{Commas(AccountTwoBalance)}</h3>
+        <h3 style={{ color: AccountTwoBalance >= 0 ? "green" : "red" }}>
+          Balance: &#8358;{Commas(AccountTwoBalance)}
+        </h3>
       </div>
       <div
-        style={{ textAlign: "center", marginTop: "3rem", marginBottom: "14rem" }}
+        style={{
+          textAlign: "center",
+          marginTop: "3rem",
+          marginBottom: "14rem"
+        }}
       >
-        <h3>
-         {" "}
-        </h3>
+        <h3> </h3>
       </div>
     </div>
   );

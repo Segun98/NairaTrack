@@ -3,62 +3,48 @@ import React, { createContext, useState, useEffect } from "react";
 export const AccountTwoContext = createContext();
 
 export function AccountTwoProvider(props) {
-  const [IncomeTwo, setIncomeTwo] = useState(StoreIncomeTwo);
-  const [ExpensesTwo, setExpensesTwo] = useState(StoreExpensesTwo);
+  const [TransactionTwo, setTransactionTwo] = useState(StoreTransactionTwo);
 
-  //Mapped through the amounts
-  const IncomeTwoAmounts = IncomeTwo.map(incomeTwo => incomeTwo.amount)
+  //Filtered Expense and income
+  const expensesTwoArray = TransactionTwo.filter(t => t.type === "Expense");
+  const incomeTwoArray = TransactionTwo.filter(t => t.type === "Income");
 
-  const ExpensesTwoAmounts = ExpensesTwo.map(expensesTwo => expensesTwo.amount)
+  // Map through amount
+  const expensesTwoAmount = expensesTwoArray.map(expenses => expenses.amount);
+  const incomeTwoAmount = incomeTwoArray.map(income => income.amount);
 
-
-  //console.log(`${IncomeTwoAmounts} ${ExpensesTwoAmounts}`);
-
-
-  //found the total
-
-  const incomeTwoTotal = IncomeTwoAmounts.reduce((acc, item)=> (acc + item), 0)
-  
-  
-
-  const ExpensesTwoTotal = ExpensesTwoAmounts.reduce((acc, item)=> (acc + item), 0)
-
-  //console.log(ExpensesTwoTotal);
+  // find total
+  const ExpensesTwoTotal = expensesTwoAmount.reduce(
+    (acc, item) => acc + item,
+    0
+  );
+  const incomeTwoTotal = incomeTwoAmount.reduce((acc, item) => acc + item, 0);
 
   // finds the balance
-
   const AccountTwoBalance = incomeTwoTotal - ExpensesTwoTotal;
-  //console.log(AccountTwoBalance);
-  
 
   //PERSIST INPUTS TO LOCAL STORAGE
 
-    useEffect(() => {
-      localStorage.setItem("incomeTwo", JSON.stringify(IncomeTwo));
-    }, [IncomeTwo]);
+  useEffect(() => {
+    localStorage.setItem("TransactionTwo", JSON.stringify(TransactionTwo));
+  }, [TransactionTwo]);
 
-    function StoreIncomeTwo() {
-      const SavedIncomeTwo= JSON.parse(localStorage.getItem("incomeTwo"));
-      return SavedIncomeTwo || [];
-    }
-
-    useEffect(() => {
-      localStorage.setItem("expensesTwo", JSON.stringify(ExpensesTwo));
-    }, [ExpensesTwo]);
-
-    function StoreExpensesTwo() {
-      const SavedExpensesTwo= JSON.parse(localStorage.getItem("expensesTwo"));
-      return SavedExpensesTwo || [];
-    }
+  function StoreTransactionTwo() {
+    const SavedTransactionTwo = JSON.parse(
+      localStorage.getItem("TransactionTwo")
+    );
+    return SavedTransactionTwo || [];
+  }
 
   return (
     <AccountTwoContext.Provider
       value={{
-        valueOneAccountTwo: [IncomeTwo, setIncomeTwo],
-        valueTwoAccountTwo: [ExpensesTwo, setExpensesTwo],
-        incomeTwoTotal:incomeTwoTotal,
-        ExpensesTwoTotal:ExpensesTwoTotal,
-        AccountTwoBalance:AccountTwoBalance
+        valueTransactionTwo: [TransactionTwo, setTransactionTwo],
+        incomeTwoTotal,
+        ExpensesTwoTotal,
+        AccountTwoBalance,
+        expensesTwoArray,
+        incomeTwoArray
       }}
     >
       {props.children}

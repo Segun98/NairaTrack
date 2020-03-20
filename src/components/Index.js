@@ -12,11 +12,6 @@ export default function Index() {
     AccountTwoContext
   );
 
-  // const LinkStyle = {
-  //   textDecoration: "none",
-  //   color: "whitesmoke"
-  // };
-
   // Quotes
   const quotes = [
     "It is important to track every of your daily transactions, start accounting and see the difference! Remember to share this app with someone",

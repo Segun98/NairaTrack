@@ -5,7 +5,6 @@ import IncomeOneList from "./IncomeOneList";
 import ExpensesOneList from "./ExpensesOneList";
 import Commas from "../../Commas";
 
-
 export default function AccountOne() {
   //Radio Option State
   const [Option, setOption] = useState("");
@@ -16,65 +15,85 @@ export default function AccountOne() {
 
   //input text state
 
-  const [Name, setName] = useState('')
-  const [Amount, setAmount] = useState('')
+  const [Name, setName] = useState("");
+  const [Amount, setAmount] = useState("");
 
   function handleNameChange(e) {
-    setName(e.target.value)
+    setName(e.target.value);
   }
 
   function handleAmountChange(e) {
-      setAmount(e.target.value)
+    setAmount(e.target.value);
   }
 
-  
   //Income and expenses from Context
   const {
-    valueOneAccountOne,
-    valueTwoAccountOne,
+    valueTransactionOne,
     incomeOneTotal,
     ExpensesOneTotal,
-    AccountOneBalance
+    AccountOneBalance,
+    expensesOneArray,
+    incomeOneArray
   } = useContext(AccountOneContext);
 
-  const [IncomeOne, setIncomeOne] = valueOneAccountOne;
-  const [ExpensesOne, setExpensesOne] = valueTwoAccountOne;
-  
-  function handleFormSubmit(e) {
-    e.preventDefault(); 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
-    const newTransaction ={
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+
+    const newTransaction = {
       id: `${Math.floor(Math.random() * 4489940000)}`,
       name: Name,
       amount: parseInt(Amount),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
-      time:new Date(),
       type: Option
-    }
-    
+    };
 
-    if (Option === "Income"){
-      setIncomeOne([...IncomeOne, newTransaction])
-    }else{
-      setExpensesOne([...ExpensesOne, newTransaction])
-    }
-    setName('')
-    setAmount('')
-    setOption('')
-    
-}
+    setTransactionOne([...TransactionOne, newTransaction]);
+    setName("");
+    setAmount("");
+    setOption("");
+  }
 
-const LinkStyle={
-  textDecoration:'none',
-  color:'whitesmoke'
-}
+  const LinkStyle = {
+    textDecoration: "none",
+    color: "whitesmoke"
+  };
   return (
     <div className="account-one-page">
-      <section className="acct-one-balance" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block'}}>
+      <section
+        className="acct-one-balance"
+        style={{
+          display:
+            ExpensesOneTotal === 0 &&
+            incomeOneTotal === 0 &&
+            AccountOneBalance === 0
+              ? "none"
+              : "block"
+        }}
+      >
         <div className="acct-one-box">
           <h4>Balance</h4>
-          <p>&#8358; {Commas(AccountOneBalance)}<span style={{fontSize:'11px'}}>{isNaN(AccountOneBalance)? '(Not a number)': null}</span></p>
+          <p>
+            &#8358; {Commas(AccountOneBalance)}
+            <span style={{ fontSize: "11px" }}>
+              {isNaN(AccountOneBalance) ? "(Not a number)" : null}
+            </span>
+          </p>
           <div className="acct-one-income-expense">
             <div>
               <h5>Income</h5>
@@ -87,21 +106,30 @@ const LinkStyle={
           </div>
         </div>
       </section>
-      <section className="acct-one-transactions" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block'   }} >
+      <section
+        className="acct-one-transactions"
+        style={{
+          display:
+            ExpensesOneTotal === 0 &&
+            incomeOneTotal === 0 &&
+            AccountOneBalance === 0
+              ? "none"
+              : "block"
+        }}
+      >
         <div className="acct-one-table-header">
           <h3>Income</h3>
           <h3>Expenses</h3>
         </div>
-        <hr/>
+        <hr />
       </section>
 
       <section className="acct-one-table">
         <div className="acct-one-table-wrap">
           <div>
-            {IncomeOne.map((incomeOneList, index) => (
+            {incomeOneArray.map((incomeOneList, index) => (
               <IncomeOneList
                 key={index}
-                index={index}
                 date={incomeOneList.date}
                 id={incomeOneList.id}
                 amount={incomeOneList.amount}
@@ -110,10 +138,9 @@ const LinkStyle={
             ))}
           </div>
           <div>
-            {ExpensesOne.map((expensesOneList, index) => (
+            {expensesOneArray.map((expensesOneList, index) => (
               <ExpensesOneList
                 key={index}
-                index={index}
                 id={expensesOneList.id}
                 name={expensesOneList.name}
                 date={expensesOneList.date}
@@ -123,11 +150,19 @@ const LinkStyle={
           </div>
         </div>
       </section>
-      <section className="full-list" style={{display: ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0 ? 'none' : 'block' }}>
+      <section
+        className="full-list"
+        style={{
+          display:
+            ExpensesOneTotal === 0 &&
+            incomeOneTotal === 0 &&
+            AccountOneBalance === 0
+              ? "none"
+              : "block"
+        }}
+      >
         <Link to="personal-account-detailed-list" style={LinkStyle}>
-        <button>
-        View Detailed List
-        </button>
+          <button>View Detailed List</button>
         </Link>
       </section>
       <section className="add-new-transaction">
@@ -141,7 +176,7 @@ const LinkStyle={
         >
           <div className="add-transaction-input">
             <div>
-            <label htmlFor="Name">Name: </label>
+              <label htmlFor="Name">Name: </label>
               <input
                 className="input-text"
                 type="text"
@@ -154,7 +189,7 @@ const LinkStyle={
               />
             </div>
             <div>
-            <label htmlFor="amount">Amount: </label> 
+              <label htmlFor="amount">Amount: </label>
               <input
                 className="input-text"
                 type="text"
@@ -170,7 +205,13 @@ const LinkStyle={
             </div>
           </div>
           <div className="radio-buttons">
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center'}} >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
               <input
                 className="input-radio"
                 type="radio"
@@ -182,7 +223,13 @@ const LinkStyle={
               />
               <label htmlFor="radio">- Income</label>
             </div>
-            <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
               <input
                 className="input-radio"
                 type="radio"

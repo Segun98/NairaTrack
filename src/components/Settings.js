@@ -3,34 +3,27 @@ import { AccountOneContext } from "../Contexts/AccountOne";
 import { AccountTwoContext } from "../Contexts/AccountTwo";
 
 export default function Settings() {
+  //alert name when changed
   const [alertName, setalertName] = useState(false);
-  //    Name State
-  const {
-    inputName,
-    setinputName,
-    setName,
-    valueOneAccountOne,
-    valueTwoAccountOne
-  } = useContext(AccountOneContext);
 
-  const { valueOneAccountTwo, valueTwoAccountTwo } = useContext(
-    AccountTwoContext
+  const { inputName, setinputName, setName, valueTransactionOne } = useContext(
+    AccountOneContext
   );
 
-  const [IncomeOne, setIncomeOne] = valueOneAccountOne;
-  const [ExpensesOne, setExpensesOne] = valueTwoAccountOne;
+  const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
-  const [IncomeTwo, setIncomeTwo] = valueOneAccountTwo;
-  const [ExpensesTwo, setExpensesTwo] = valueTwoAccountTwo;
+  const { valueTransactionTwo } = useContext(AccountTwoContext);
+
+  const [TransactionTwo, setTransactionTwo] = valueTransactionTwo;
 
   const [Modal, setModal] = useState(true);
   const [ModalTwo, setModalTwo] = useState(true);
 
   function handleDelete() {
-    const newAccountOne = [...IncomeOne, ...ExpensesOne];
-    newAccountOne.splice(0, newAccountOne.length);
-    setIncomeOne(newAccountOne);
-    setExpensesOne(newAccountOne);
+    const newAccountOne = TransactionOne.filter(
+      trans => trans === TransactionOne
+    );
+    setTransactionOne(newAccountOne);
     setModal(true);
   }
   function deleteItem() {
@@ -38,10 +31,10 @@ export default function Settings() {
   }
 
   function handleDeleteTwo() {
-    const newAccountTwo = [...IncomeTwo, ...ExpensesTwo];
-    newAccountTwo.splice(0, newAccountTwo.length);
-    setIncomeTwo(newAccountTwo);
-    setExpensesTwo(newAccountTwo);
+    const newAccountTwo = TransactionTwo.filter(
+      trans => trans === TransactionTwo
+    );
+    setTransactionTwo(newAccountTwo);
     setModalTwo(true);
   }
   function deleteItemTwo() {
@@ -144,7 +137,7 @@ export default function Settings() {
           </h4>
         </div>
         <div className="delete-accounts-wrap">
-          <div style={{ display: "flex", flexDirection: "column"}}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <h3>Personal Account</h3>
             <p>Delete all transactions data from Personal Account</p>
           </div>

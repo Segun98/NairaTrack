@@ -3,27 +3,14 @@ import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import Commas from "../../Commas";
 
 export default function DetailedListOne() {
-  // let history = useHistory();
+  const { valueTransactionTwo, AccountTwoBalance } = useContext(
+    AccountTwoContext
+  );
 
-  const {
-    valueOneAccountTwo,
-    valueTwoAccountTwo,
-    AccountTwoBalance
-  } = useContext(AccountTwoContext);
-
-  const [IncomeTwo] = valueOneAccountTwo;
-  const [ExpensesTwo] = valueTwoAccountTwo;
-
-  const Merge = [...IncomeTwo, ...ExpensesTwo];
-  //   console.log(Merge);
-
-  //   List according to time of transaction
-  const arranged = Merge.sort((a, b) => new Date(a.time) - new Date(b.time));
-  //new Date().toLocaleString()
+  const [TransactionTwo] = valueTransactionTwo;
 
   return (
     <div className="detailed-list">
-      {/* <h3 style={{textAlign:"center", margin:"10px 0", textDecoration:"underline"}}>Personal Account</h3> */}
       <div className="detailed-list-head-two">
         <h4>Date</h4>
         <h4>Name</h4>
@@ -32,7 +19,7 @@ export default function DetailedListOne() {
         <h4>Total</h4>
       </div>
       <div>
-        {arranged.map((list, index) => (
+        {TransactionTwo.map((list, index) => (
           <ul className="det-list-two" key={index}>
             <ul
               className="list-two"

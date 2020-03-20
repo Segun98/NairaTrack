@@ -2,16 +2,15 @@ import React, { useContext, useState } from "react";
 import Commas from "../../Commas";
 import { AccountOneContext } from "../../Contexts/AccountOne";
 
-export default function IncomeOneList({ name, date, amount, index }) {
-  const { valueOneAccountOne } = useContext(AccountOneContext);
-  const [IncomeOne, setIncomeOne] = valueOneAccountOne;
+export default function IncomeOneList({ name, date, amount, id }) {
+  const { valueTransactionOne } = useContext(AccountOneContext);
+  const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
   const [Modal, setModal] = useState(true);
 
   function handleDelete() {
-    const newIncomeOne = [...IncomeOne];
-    newIncomeOne.splice(index, 1);
-    setIncomeOne(newIncomeOne);
+    const newIncome = TransactionOne.filter(one => one.id !== id);
+    setTransactionOne(newIncome);
     setModal(true);
   }
   function deleteItem() {
@@ -50,7 +49,11 @@ export default function IncomeOneList({ name, date, amount, index }) {
           <div className="name" title={name}>
             {name}
           </div>
-          <div className="amount" title={Commas(amount)} style={{color:'green'}}>
+          <div
+            className="amount"
+            title={Commas(amount)}
+            style={{ color: "green" }}
+          >
             {Commas(amount)}
           </div>
         </div>

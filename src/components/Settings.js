@@ -1,8 +1,11 @@
 import React, { useContext, useState } from "react";
 import { AccountOneContext } from "../Contexts/AccountOne";
 import { AccountTwoContext } from "../Contexts/AccountTwo";
+import { useHistory } from "react-router-dom";
 
 export default function Settings() {
+  
+  let history = useHistory();
   //alert name when changed
   const [alertName, setalertName] = useState(false);
 
@@ -25,6 +28,7 @@ export default function Settings() {
     );
     setTransactionOne(newAccountOne);
     setModal(true);
+    history.push("/account-one");
   }
   function deleteItem() {
     setModal(false);
@@ -36,6 +40,7 @@ export default function Settings() {
     );
     setTransactionTwo(newAccountTwo);
     setModalTwo(true);
+    history.push("/account-two");
   }
   function deleteItemTwo() {
     setModalTwo(false);
@@ -104,6 +109,7 @@ export default function Settings() {
             e.preventDefault();
             setName(inputName);
             setalertName(true);
+            // history.push("/");
           }}
         >
           <input

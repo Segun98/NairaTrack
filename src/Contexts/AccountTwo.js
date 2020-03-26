@@ -9,16 +9,9 @@ export function AccountTwoProvider(props) {
   const expensesTwoArray = TransactionTwo.filter(t => t.type === "Expense");
   const incomeTwoArray = TransactionTwo.filter(t => t.type === "Income");
 
-  // Map through amount
-  const expensesTwoAmount = expensesTwoArray.map(expenses => expenses.amount);
-  const incomeTwoAmount = incomeTwoArray.map(income => income.amount);
-
   // find total
-  const ExpensesTwoTotal = expensesTwoAmount.reduce(
-    (acc, item) => acc + item,
-    0
-  );
-  const incomeTwoTotal = incomeTwoAmount.reduce((acc, item) => acc + item, 0);
+  const ExpensesTwoTotal = expensesTwoArray.reduce((a, b) => a + b.amount, 0);
+  const incomeTwoTotal = incomeTwoArray.reduce((a, b) => a + b.amount, 0);
 
   // finds the balance
   const AccountTwoBalance = incomeTwoTotal - ExpensesTwoTotal;

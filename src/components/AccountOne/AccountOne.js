@@ -269,7 +269,6 @@ export default function AccountOne() {
               <option value="Feeding">Feeding</option>
               <option value="HealthCare">HealthCare</option>
               <option value="Telephone & Internet">Telephone & Internet</option>
-              <option value="Home">Home</option>
               <option value="Transportation">Transportation</option>
               <option value="Education">Education</option>
               <option value="Other">Other</option>

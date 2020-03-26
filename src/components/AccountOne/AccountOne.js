@@ -26,6 +26,12 @@ export default function AccountOne() {
     setAmount(e.target.value);
   }
 
+  //Category
+  const [Category, setCategory] = useState("");
+  function updateCategory(e) {
+    setCategory(e.target.value);
+  }
+
   //Income and expenses from Context
   const {
     valueTransactionOne,
@@ -38,6 +44,7 @@ export default function AccountOne() {
 
   const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
+  // Submit Form to add transaction
   function handleFormSubmit(e) {
     e.preventDefault();
     const months = [
@@ -60,7 +67,8 @@ export default function AccountOne() {
       name: Name,
       amount: parseInt(Amount),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
-      type: Option
+      type: Option,
+      Category: `${Option === "Income" ? "Income" : Category}`
     };
 
     setTransactionOne([...TransactionOne, newTransaction]);
@@ -88,12 +96,7 @@ export default function AccountOne() {
       >
         <div className="acct-one-box">
           <h4>Balance</h4>
-          <p>
-            &#8358; {Commas(AccountOneBalance)}
-            <span style={{ fontSize: "11px" }}>
-              {isNaN(AccountOneBalance) ? "(Not a number)" : null}
-            </span>
-          </p>
+          <p>&#8358; {Commas(AccountOneBalance)}</p>
           <div className="acct-one-income-expense">
             <div>
               <h5>Income</h5>
@@ -241,6 +244,36 @@ export default function AccountOne() {
               />
               <label htmlFor="radio">- Expense</label>
             </div>
+          </div>
+          <div
+            style={{
+              margin: "20px 0",
+              cursor: "pointer",
+              display: Option === "Expense" ? "block" : "none"
+            }}
+          >
+            <label htmlFor="Category"> Category:</label>
+            <br />
+            <select
+              value={Category}
+              onChange={updateCategory}
+              style={{
+                width: "80px",
+                marginTop: "10px",
+                border: "none",
+                borderBottom: "1px solid grey",
+                background: "ghostwhite"
+              }}
+            >
+              <option value="">--select--</option>
+              <option value="Feeding">Feeding</option>
+              <option value="HealthCare">HealthCare</option>
+              <option value="Telephone & Internet">Telephone & Internet</option>
+              <option value="Home">Home</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Education">Education</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <button type="submit">Submit</button>
         </form>

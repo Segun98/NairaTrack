@@ -68,7 +68,7 @@ export default function AccountOne() {
       amount: parseInt(Amount),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
       type: Option,
-      Category: `${Option === "Income" ? "Income" : Category}`
+      category: `${Option === "Income" ? "Income" : Category}`
     };
 
     setTransactionOne([...TransactionOne, newTransaction]);

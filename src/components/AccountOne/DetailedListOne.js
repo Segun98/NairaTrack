@@ -20,7 +20,7 @@ export default function DetailedListOne() {
 
   function Education() {
     const Education = expensesOneArray.filter(
-      one => one.Category === "Education"
+      one => one.category === "Education"
     );
     let TotalEducation = Education.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalEducation);
@@ -34,7 +34,7 @@ export default function DetailedListOne() {
   console.log("Education Takes " + Education() + "%");
 
   function Feeding() {
-    const Feeding = expensesOneArray.filter(one => one.Category === "Feeding");
+    const Feeding = expensesOneArray.filter(one => one.category === "Feeding");
     let TotalFeeding = Feeding.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalFeeding);
 
@@ -48,7 +48,7 @@ export default function DetailedListOne() {
 
   function Telephone() {
     const Telephone = expensesOneArray.filter(
-      one => one.Category === "Telephone & Internet"
+      one => one.category === "Telephone & Internet"
     );
     let TotalTelephone = Telephone.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalTelephone);
@@ -63,7 +63,7 @@ export default function DetailedListOne() {
 
   function HealthCare() {
     const HealthCare = expensesOneArray.filter(
-      one => one.Category === "HealthCare"
+      one => one.category === "HealthCare"
     );
     let TotalHealthCare = HealthCare.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalHealthCare);
@@ -78,7 +78,7 @@ export default function DetailedListOne() {
 
   function Transportation() {
     const Transportation = expensesOneArray.filter(
-      one => one.Category === "Transportation"
+      one => one.category === "Transportation"
     );
     let TotalTransportation = Transportation.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalTransportation);
@@ -91,30 +91,31 @@ export default function DetailedListOne() {
 
   console.log("Transportation Takes " + Transportation() + "%");
 
-  let total =
-    Transportation() + HealthCare() + Education() + Feeding() + Telephone();
-  console.log("total " + total);
+  // let total =
+  //   Transportation() + HealthCare() + Education() + Feeding() + Telephone();
+  // console.log("total " + total);
 
-  // Quiff Maffs to sum the "Other" to the remaining left out percentage
-  let rest = 100 - total;
+  // // Quiff Maffs to sum the "Other" to the remaining left out percentage
+  // let rest = 100 - total;
 
   function Other() {
-    const Other = expensesOneArray.filter(one => one.Category === "Other");
+    const Other = expensesOneArray.filter(one => one.category === "Other");
     let TotalOther = Other.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalOther);
 
     let OtherPercent = (TotalOther / incomeOneTotal) * 100;
 
-    console.log("Other " + Math.round(OtherPercent));
-    let remain = rest - OtherPercent;
-    return remain + Math.round(OtherPercent);
+    // console.log("Other " + Math.round(OtherPercent));
+    // let remain = rest - OtherPercent;
+    // return remain + Math.round(OtherPercent);
+    return Math.round(OtherPercent);
   }
 
   console.log("Other " + Math.round(Other()) + "%");
 
   // Percentage of All Expenses from Income
 
-  function percentage() {
+  function Expensepercentage() {
     const div = ExpensesOneTotal / incomeOneTotal;
 
     const percent = div * 100;
@@ -124,17 +125,32 @@ export default function DetailedListOne() {
 
     // .toFixed(1)
   }
-  percentage();
+  console.log("Expenses in total takes " + Expensepercentage() + "%");
+
+  // Percentage of Income Left
+  function incomePercentage() {
+    const div = ExpensesOneTotal / incomeOneTotal;
+
+    const percent = div * 100;
+
+    let incomePercent = 100 - percent;
+
+    return Math.round(incomePercent);
+  }
+
+  console.log(" Income in total takes " + incomePercentage() + "%");
+
   return (
     <div className="detailed-list">
       <div className="detailed-list-head">
         <h4>Date</h4>
         <h4>Name</h4>
+        <h4>Category</h4>
         <h4>Amount</h4>
       </div>
       <div>
         {TransactionOne.map((list, index) => (
-          <ul className="det-list" key={index}>
+          <div className="det-list" key={index}>
             <ul
               className="list"
               style={{
@@ -143,12 +159,14 @@ export default function DetailedListOne() {
             >
               <li>{list.date}</li>
               <li>{list.name}</li>
+              <li>{list.category}</li>
               <li>{Commas(list.amount)}</li>
             </ul>
-          </ul>
+          </div>
         ))}
       </div>
       <div className="detailed-list-head">
+        <h4>{""}</h4>
         <h4>{""}</h4>
         <h4>{""}</h4>
         <h3 style={{ color: AccountOneBalance >= 0 ? "green" : "red" }}>

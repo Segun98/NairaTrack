@@ -99,12 +99,7 @@ export default function AccountTwo() {
       >
         <div className="acct-one-box">
           <h4>Balance</h4>
-          <p>
-            &#8358; {Commas(AccountTwoBalance)}
-            <span style={{ fontSize: "11px" }}>
-              {isNaN(AccountTwoBalance) ? "(Not a number)" : null}
-            </span>
-          </p>
+          <p>&#8358; {Commas(AccountTwoBalance)}</p>
           <div className="acct-one-income-expense">
             <div>
               <h5>Income</h5>

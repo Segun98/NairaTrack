@@ -20,7 +20,7 @@ export default function DetailedListOne() {
       </div>
       <div>
         {TransactionTwo.map((list, index) => (
-          <ul className="det-list-two" key={index}>
+          <div className="det-list-two" key={index}>
             <ul
               className="list-two"
               style={{
@@ -33,7 +33,7 @@ export default function DetailedListOne() {
               <li>{list.Units}</li>
               <li>{Commas(list.amount)}</li>
             </ul>
-          </ul>
+          </div>
         ))}
       </div>
       <div className="detailed-list-head-two">

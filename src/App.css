@@ -624,9 +624,9 @@ header {
     display: grid;
     display: -moz-grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: auto;
-    width: 90%;
+    width: 100%;
     place-items: center;
 }
 
@@ -642,9 +642,9 @@ header {
     display: grid;
     display: -moz-grid;
     display: -ms-grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: auto;
-    width: 95%;
+    width: 100%;
     margin-top: 1rem;
     place-items: center;
     text-align: center;

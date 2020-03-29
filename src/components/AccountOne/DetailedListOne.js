@@ -142,11 +142,28 @@ export default function DetailedListOne() {
 
   return (
     <div className="detailed-list">
+    <ul>
+      <li>Total Income : {incomeOneTotal}</li>
+      <li>Total Expenses : {ExpensesOneTotal}</li>
+      <li>Balance : {AccountOneBalance}</li>
+    </ul>
+
+    <ul>
+    <h3>Percentages</h3>
+      <li>Income : {incomePercentage()}%</li>
+      <li>Expenses : {Expensepercentage()}%</li>
+      <li>Feeding : {Feeding()}%</li>
+      <li>Transportation : {Transportation()}%</li>
+      <li>HealthCare : {HealthCare()}%</li>
+      <li>Telephone & Internet : {Telephone()}%</li>
+      <li>Education : {Feeding()}%</li>
+      <li>Other : {Other()}%</li>
+    </ul>
       <div className="detailed-list-head">
         <h4>Date</h4>
         <h4>Name</h4>
-        <h4>Category</h4>
         <h4>Amount</h4>
+        <h4>Category</h4>
       </div>
       <div>
         {TransactionOne.map((list, index) => (
@@ -159,8 +176,8 @@ export default function DetailedListOne() {
             >
               <li>{list.date}</li>
               <li>{list.name}</li>
-              <li>{list.category}</li>
               <li>{Commas(list.amount)}</li>
+              <li>{list.category}</li>
             </ul>
           </div>
         ))}
@@ -168,10 +185,10 @@ export default function DetailedListOne() {
       <div className="detailed-list-head">
         <h4>{""}</h4>
         <h4>{""}</h4>
-        <h4>{""}</h4>
         <h3 style={{ color: AccountOneBalance >= 0 ? "green" : "red" }}>
           Balance: &#8358;{Commas(AccountOneBalance)}
         </h3>
+        <h4>{""}</h4>
       </div>
       <div
         style={{

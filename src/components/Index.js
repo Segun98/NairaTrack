@@ -51,7 +51,7 @@ export default function Index() {
             </div>
             <div className="index-account-one-balance">
               <h5>Balance</h5>
-              <p>&#8358; {Commas(AccountOneBalance)}</p>
+              <p style={{fontSize:"20px"}}>&#8358; {Commas(AccountOneBalance)}</p>
             </div>
           </div>
           <button>
@@ -79,7 +79,7 @@ export default function Index() {
             </div>
             <div className="index-account-two-balance">
               <h5>Balance</h5>
-              <p> &#8358; {Commas(AccountTwoBalance)}</p>
+              <p style={{fontSize:"20px"}}> &#8358; {Commas(AccountTwoBalance)}</p>
             </div>
           </div>
           <button>

@@ -3,7 +3,7 @@ import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import Commas from "../../Commas";
 
 export default function DetailedListOne() {
-  const { valueTransactionTwo, AccountTwoBalance } = useContext(
+  const { valueTransactionTwo, AccountTwoBalance, incomeTwoTotal, ExpensesTwoTotal } = useContext(
     AccountTwoContext
   );
 
@@ -11,6 +11,23 @@ export default function DetailedListOne() {
 
   return (
     <div className="detailed-list">
+    <div style={{ margin:"10px auto", width:'50%', textAlign:"center"}}>
+    <ul className="analysis-summary-two">
+            <li>Income ~ &#8358;{Commas(incomeTwoTotal)}</li>
+            <li>Expenses ~ &#8358;{Commas(ExpensesTwoTotal)}</li>
+            <li
+              style={{
+                backgroundColor: AccountTwoBalance >= 0 ? "#32cd32" : "#ff0000",
+                color: "white",
+                padding: "4px 10px",
+                borderRadius:"8px"
+              }}
+            >
+              Balance ~ &#8358;{Commas(AccountTwoBalance)}
+            </li>
+          </ul>
+
+    </div>
       <div className="detailed-list-head-two">
         <h4>Date</h4>
         <h4>Name</h4>
@@ -36,20 +53,11 @@ export default function DetailedListOne() {
           </div>
         ))}
       </div>
-      <div className="detailed-list-head-two">
-        <h4>{""}</h4>
-        <h4>{""}</h4>
-        <h4>{""}</h4>
-        <h4>{""}</h4>
-        <h3 style={{ color: AccountTwoBalance >= 0 ? "green" : "red" }}>
-          Balance: &#8358;{Commas(AccountTwoBalance)}
-        </h3>
-      </div>
       <div
         style={{
           textAlign: "center",
           marginTop: "3rem",
-          marginBottom: "14rem"
+          marginBottom: "20rem"
         }}
       >
         <h3> </h3>

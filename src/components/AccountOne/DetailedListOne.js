@@ -91,12 +91,70 @@ export default function DetailedListOne() {
 
   console.log("Transportation Takes " + Transportation() + "%");
 
-  // let total =
-  //   Transportation() + HealthCare() + Education() + Feeding() + Telephone();
-  // console.log("total " + total);
+  function Rent() {
+    const Rent = expensesOneArray.filter(one => one.category === "Rent");
+    let TotalRent = Rent.reduce((a, b) => a + b.amount, 0);
+    // console.log(TotalRent);
 
-  // // Quiff Maffs to sum the "Other" to the remaining left out percentage
-  // let rest = 100 - total;
+    let RentPercent = (TotalRent / incomeOneTotal) * 100;
+    // console.log(RentPercent);
+
+    return Math.round(RentPercent);
+  }
+
+  console.log("Rent Takes " + Rent() + "%");
+
+  function Household() {
+    const Household = expensesOneArray.filter(
+      one => one.category === "Household"
+    );
+    let TotalHousehold = Household.reduce((a, b) => a + b.amount, 0);
+    // console.log(TotalRent);
+
+    let HouseholdPercent = (TotalHousehold / incomeOneTotal) * 100;
+    // console.log(RentPercent);
+
+    return Math.round(HouseholdPercent);
+  }
+
+  console.log("Household Takes " + Household() + "%");
+
+  function Vehicle() {
+    const Vehicle = expensesOneArray.filter(one => one.category === "Vehicle");
+    let TotalVehicle = Vehicle.reduce((a, b) => a + b.amount, 0);
+
+    let VehiclePercent = (TotalVehicle / incomeOneTotal) * 100;
+
+    return Math.round(VehiclePercent);
+  }
+
+  console.log("Vehicle Takes " + Vehicle() + "%");
+
+  function Clothing() {
+    const Clothing = expensesOneArray.filter(
+      one => one.category === "Clothing"
+    );
+    let TotalClothing = Clothing.reduce((a, b) => a + b.amount, 0);
+
+    let ClothingPercent = (TotalClothing / incomeOneTotal) * 100;
+
+    return Math.round(ClothingPercent);
+  }
+
+  console.log("Clothing Takes " + Clothing() + "%");
+
+  function Entertainment() {
+    const Entertainment = expensesOneArray.filter(
+      one => one.category === "Entertainment"
+    );
+    let TotalEntertainment = Entertainment.reduce((a, b) => a + b.amount, 0);
+
+    let EntertainmentPercent = (TotalEntertainment / incomeOneTotal) * 100;
+
+    return Math.round(EntertainmentPercent);
+  }
+
+  console.log("Entertainment Takes " + Entertainment() + "%");
 
   function Other() {
     const Other = expensesOneArray.filter(one => one.category === "Other");
@@ -105,9 +163,6 @@ export default function DetailedListOne() {
 
     let OtherPercent = (TotalOther / incomeOneTotal) * 100;
 
-    // console.log("Other " + Math.round(OtherPercent));
-    // let remain = rest - OtherPercent;
-    // return remain + Math.round(OtherPercent);
     return Math.round(OtherPercent);
   }
 
@@ -142,23 +197,47 @@ export default function DetailedListOne() {
 
   return (
     <div className="detailed-list">
-    <ul>
-      <li>Total Income : {incomeOneTotal}</li>
-      <li>Total Expenses : {ExpensesOneTotal}</li>
-      <li>Balance : {AccountOneBalance}</li>
-    </ul>
+      <div className="analysis">
+        <div
+          className="analysis-wrap"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            margin: "auto",
+            width: "98%",
+            alignItems: "center"
+          }}
+        >
+          <ul className="analysis-summary">
+            <li>Income ~ &#8358;{Commas(incomeOneTotal)}</li>
+            <li>Expenses ~ &#8358;{Commas(ExpensesOneTotal)}</li>
+            <li
+              style={{
+                backgroundColor: AccountOneBalance >= 0 ? "#32cd32" : "#ff0000",
+                color: "white",
+                padding: "4px 10px",
+                borderRadius: "0 8px 8px 0"
+              }}
+            >
+              Balance ~ &#8358;{Commas(AccountOneBalance)}
+            </li>
+          </ul>
+          <div className="pie-chart">
+            <div className="dummy-pie"></div>
+            {/* <ul>
+              <li>Income : {incomePercentage()}%</li>
+              <li>Expenses : {Expensepercentage()}%</li>
+              <li>Feeding : {Feeding()}%</li>
+              <li>Transportation : {Transportation()}%</li>
+              <li>HealthCare : {HealthCare()}%</li>
+              <li>Telephone & Internet : {Telephone()}%</li>
+              <li>Education : {Feeding()}%</li>
+              <li>Other : {Other()}%</li>
+            </ul> */}
+          </div>
+        </div>
+      </div>
 
-    <ul>
-    <h3>Percentages</h3>
-      <li>Income : {incomePercentage()}%</li>
-      <li>Expenses : {Expensepercentage()}%</li>
-      <li>Feeding : {Feeding()}%</li>
-      <li>Transportation : {Transportation()}%</li>
-      <li>HealthCare : {HealthCare()}%</li>
-      <li>Telephone & Internet : {Telephone()}%</li>
-      <li>Education : {Feeding()}%</li>
-      <li>Other : {Other()}%</li>
-    </ul>
       <div className="detailed-list-head">
         <h4>Date</h4>
         <h4>Name</h4>
@@ -177,18 +256,10 @@ export default function DetailedListOne() {
               <li>{list.date}</li>
               <li>{list.name}</li>
               <li>{Commas(list.amount)}</li>
-              <li>{list.category}</li>
+              <li style={{ fontSize: "12px" }}>{list.category}</li>
             </ul>
           </div>
         ))}
-      </div>
-      <div className="detailed-list-head">
-        <h4>{""}</h4>
-        <h4>{""}</h4>
-        <h3 style={{ color: AccountOneBalance >= 0 ? "green" : "red" }}>
-          Balance: &#8358;{Commas(AccountOneBalance)}
-        </h3>
-        <h4>{""}</h4>
       </div>
       <div
         style={{

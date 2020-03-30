@@ -650,6 +650,43 @@ header {
     text-align: center;
 }
 
+.detailed-list-head h4 {
+    filter: contrast(40%);
+    font-size: 14px;
+}
+
+.analysis {
+    margin: 10px 0;
+    line-height: 25px;
+}
+
+.analysis-summary li:first-child {
+    background-color: #32cd32;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 0 8px 8px 0;
+}
+
+.analysis-summary li:nth-child(2) {
+    background-color: #ff0000;
+    color: white;
+    margin: 10px 0;
+    padding: 4px 10px;
+    border-radius: 0 8px 8px 0;
+}
+
+.dummy-pie {
+    background-color: yellow;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.analysis ul li {
+    font-size: 14px;
+}
+
+
 /* Business Account */
 
 .det-list-two {
@@ -697,6 +734,25 @@ header {
     place-items: center;
 }
 
+.detailed-list-head-two h4 {
+    filter: contrast(40%);
+    font-size: 14px;
+}
+
+.analysis-summary-two li:first-child {
+    background-color: #32cd32;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.analysis-summary-two li:nth-child(2) {
+    background-color: #ff0000;
+    color: white;
+    margin: 10px 0;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
 
 /* MODALS */
 
@@ -868,7 +924,7 @@ header {
     place-items: center;
 }
 
-.delete-accounts-wrap button{
+.delete-accounts-wrap button {
     width: 70px;
     height: 30px;
 }

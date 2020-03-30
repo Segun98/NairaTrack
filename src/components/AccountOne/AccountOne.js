@@ -287,6 +287,11 @@ console.log(TransactionOne);
               <option value="Telephone & Internet">Telephone & Internet</option>
               <option value="Transportation">Transportation</option>
               <option value="Education">Education</option>
+              <option value="Household">Household</option>
+              <option value="Rent">Rent</option>
+              <option value="Vehicle">Vehicle</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Entertainment">Entertainment</option>
               <option value="Other">Other</option>
             </select>
           </div>

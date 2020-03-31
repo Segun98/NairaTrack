@@ -609,7 +609,20 @@ header {
     border-radius: 1rem;
     color: white;
     cursor: pointer;
-
+animation: detailed infinite ease-in-out 2s;
+}
+@keyframes detailed {
+    0% {
+        transform: scale(1.09);
+    }
+    50%{
+        transform: scale(1.05);
+        
+    }
+    100%{
+        transform: scale(1.09);
+        
+    }
 }
 
 .det-list {
@@ -657,30 +670,27 @@ header {
 
 .analysis {
     margin: 10px 0;
+    margin-top: -40px;
     line-height: 25px;
 }
-
+.analysis-summary {
+    display: flex;
+}
 .analysis-summary li:first-child {
     background-color: #32cd32;
     color: white;
-    padding: 4px 10px;
-    border-radius: 0 8px 8px 0;
+    /* padding: 4px 10px; */
+    border-radius: 8px 0 0 8px;
 }
 
 .analysis-summary li:nth-child(2) {
     background-color: #ff0000;
     color: white;
-    margin: 10px 0;
+    /* margin: 10px 0;
     padding: 4px 10px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 8px 0; */
 }
 
-.dummy-pie {
-    background-color: yellow;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-}
 
 .analysis ul li {
     font-size: 14px;

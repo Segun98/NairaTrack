@@ -316,18 +316,40 @@ export default function DetailedListOne() {
 
   return (
     <div className="detailed-list">
+      <div>
+        <h3
+          style={{
+            textAlign: "center",
+            marginBottom: "-50px",
+            marginTop: "15px"
+          }}
+        >
+          Expenses By Category
+        </h3>
+        <Pie
+          data={data}
+          width={200}
+          height={200}
+          options={{
+            legend: {
+              display: true,
+              position: "right"
+            }
+          }}
+        />
+      </div>
       <div className="analysis">
         <div
           className="analysis-wrap"
           style={{
-            margin: "20px auto",
-            width: "50%",
+            margin: "10px auto",
+            width: "95%",
             textAlign: "center"
           }}
         >
           <ul className="analysis-summary">
-            <li>Income ~ &#8358;{Commas(incomeOneTotal)}</li>
-            <li>Expenses ~ &#8358;{Commas(ExpensesOneTotal)}</li>
+            <li>Income &#8358;{Commas(incomeOneTotal)}</li>
+            <li>Expenses &#8358;{Commas(ExpensesOneTotal)}</li>
             <li
               style={{
                 backgroundColor: AccountOneBalance >= 0 ? "#32cd32" : "#ff0000",
@@ -336,31 +358,11 @@ export default function DetailedListOne() {
                 borderRadius: "0 8px 8px 0"
               }}
             >
-              Balance ~ &#8358;{Commas(AccountOneBalance)}
+              Balance &#8358;{Commas(AccountOneBalance)}
             </li>
           </ul>
         </div>
       </div>
-
-      <div>
-        <Pie
-          data={data}
-          width={200}
-          height={200}
-          options={{
-            title: {
-              display: true,
-              text: "Expenses By Category",
-              fontSize: 18
-            },
-            legend: {
-              display: true,
-              position: "right"
-            }
-          }}
-        />
-      </div>
-
       <div className="detailed-list-head">
         <h4>Date</h4>
         <h4>Name</h4>

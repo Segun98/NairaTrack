@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AccountOneContext } from "../../Contexts/AccountOne";
 import Commas from "../../Commas";
+import { Pie } from "react-chartjs-2";
 
 export default function DetailedListOne() {
   const {
@@ -13,8 +14,24 @@ export default function DetailedListOne() {
 
   const [TransactionOne] = valueTransactionOne;
 
+  if (ExpensesOneTotal === 0 && incomeOneTotal === 0 && AccountOneBalance === 0)
+    return <div style={{ height: "100vh" }}> {""}</div>;
+
   // List according to time of transaction , no longer needed.
   // const arranged = TransactionOne.sort((a, b) => new Date(a.time) - new Date(b.time));
+
+  //Pie chart Library
+
+  const data = {
+    labels: ["Income " + incomePercentage() + "%"],
+    datasets: [
+      {
+        data: [incomePercentage()],
+        backgroundColor: ["#32cd32"],
+        hoverBackgroundColor: ["#333"]
+      }
+    ]
+  };
 
   // Percentage Calculation for each Category
 
@@ -27,11 +44,19 @@ export default function DetailedListOne() {
 
     let educationPercent = (TotalEducation / incomeOneTotal) * 100;
 
-    return Math.round(educationPercent);
-  }
-  //  Education();
+    const finalEdu = Math.round(educationPercent);
 
-  console.log("Education Takes " + Education() + "%");
+    if (finalEdu === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Education " + finalEdu + "%");
+      data.datasets[0].data.push(finalEdu);
+      data.datasets[0].backgroundColor.push("#FF6384");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
+  }
+  Education();
 
   function Feeding() {
     const Feeding = expensesOneArray.filter(one => one.category === "Feeding");
@@ -39,12 +64,21 @@ export default function DetailedListOne() {
     // console.log(TotalFeeding);
 
     let feedingPercent = (TotalFeeding / incomeOneTotal) * 100;
-    return Math.round(feedingPercent);
+    const finalFeeding = Math.round(feedingPercent);
+
+    if (finalFeeding === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Feeding " + finalFeeding + "%");
+      data.datasets[0].data.push(finalFeeding);
+      data.datasets[0].backgroundColor.push("#36A2EB");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
+  Feeding();
 
-  // Feeding()
-
-  console.log("Feeding Takes " + Feeding() + "%");
+  // console.log("Feeding Takes " + Feeding() + "%");
 
   function Telephone() {
     const Telephone = expensesOneArray.filter(
@@ -54,12 +88,23 @@ export default function DetailedListOne() {
     // console.log(TotalTelephone);
 
     let telephonePercent = (TotalTelephone / incomeOneTotal) * 100;
-    return Math.round(telephonePercent);
+
+    const finalTelephone = Math.round(telephonePercent);
+
+    if (finalTelephone === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Telephone " + finalTelephone + "%");
+      data.datasets[0].data.push(finalTelephone);
+      data.datasets[0].backgroundColor.push("#FFCE56");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
 
-  // Telephone()
+  Telephone();
 
-  console.log("Telephone Takes " + Telephone() + "%");
+  // console.log("Telephone Takes " + Telephone() + "%");
 
   function HealthCare() {
     const HealthCare = expensesOneArray.filter(
@@ -69,12 +114,22 @@ export default function DetailedListOne() {
     // console.log(TotalHealthCare);
 
     let HealthCarePercent = (TotalHealthCare / incomeOneTotal) * 100;
-    return Math.round(HealthCarePercent);
+
+    const finalHealthCare = Math.round(HealthCarePercent);
+
+    if (finalHealthCare === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("HealthCare " + finalHealthCare + "%");
+      data.datasets[0].data.push(finalHealthCare);
+      data.datasets[0].backgroundColor.push("#B21F00");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
+  HealthCare();
 
-  // HealthCare()
-
-  console.log("HealthCare Takes " + HealthCare() + "%");
+  // console.log("HealthCare Takes " + HealthCare() + "%");
 
   function Transportation() {
     const Transportation = expensesOneArray.filter(
@@ -84,12 +139,22 @@ export default function DetailedListOne() {
     // console.log(TotalTransportation);
 
     let TransportationPercent = (TotalTransportation / incomeOneTotal) * 100;
-    return Math.round(TransportationPercent);
+
+    const finalTransportation = Math.round(TransportationPercent);
+
+    if (finalTransportation === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Transportation " + finalTransportation + "%");
+      data.datasets[0].data.push(finalTransportation);
+      data.datasets[0].backgroundColor.push("#C9DE00");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
+  Transportation();
 
-  // Transportation()
-
-  console.log("Transportation Takes " + Transportation() + "%");
+  // console.log("Transportation Takes " + Transportation() + "%");
 
   function Rent() {
     const Rent = expensesOneArray.filter(one => one.category === "Rent");
@@ -99,10 +164,20 @@ export default function DetailedListOne() {
     let RentPercent = (TotalRent / incomeOneTotal) * 100;
     // console.log(RentPercent);
 
-    return Math.round(RentPercent);
-  }
+    const finalRent = Math.round(RentPercent);
 
-  console.log("Rent Takes " + Rent() + "%");
+    if (finalRent === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Rent " + finalRent + "%");
+      data.datasets[0].data.push(finalRent);
+      data.datasets[0].backgroundColor.push("#FFC0CB");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
+  }
+  Rent();
+  // console.log("Rent Takes " + Rent() + "%");
 
   function Household() {
     const Household = expensesOneArray.filter(
@@ -113,22 +188,40 @@ export default function DetailedListOne() {
 
     let HouseholdPercent = (TotalHousehold / incomeOneTotal) * 100;
     // console.log(RentPercent);
+    const finalHousehold = Math.round(HouseholdPercent);
 
-    return Math.round(HouseholdPercent);
+    if (finalHousehold === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Household " + finalHousehold + "%");
+      data.datasets[0].data.push(finalHousehold);
+      data.datasets[0].backgroundColor.push("#6800B4");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
-
-  console.log("Household Takes " + Household() + "%");
+  Household();
+  // console.log("Household Takes " + Household() + "%");
 
   function Vehicle() {
     const Vehicle = expensesOneArray.filter(one => one.category === "Vehicle");
     let TotalVehicle = Vehicle.reduce((a, b) => a + b.amount, 0);
 
     let VehiclePercent = (TotalVehicle / incomeOneTotal) * 100;
+    const finalVehicle = Math.round(VehiclePercent);
 
-    return Math.round(VehiclePercent);
+    if (finalVehicle === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Vehicle " + finalVehicle + "%");
+      data.datasets[0].data.push(finalVehicle);
+      data.datasets[0].backgroundColor.push("#501800");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
-
-  console.log("Vehicle Takes " + Vehicle() + "%");
+  Vehicle();
+  // console.log("Vehicle Takes " + Vehicle() + "%");
 
   function Clothing() {
     const Clothing = expensesOneArray.filter(
@@ -137,11 +230,20 @@ export default function DetailedListOne() {
     let TotalClothing = Clothing.reduce((a, b) => a + b.amount, 0);
 
     let ClothingPercent = (TotalClothing / incomeOneTotal) * 100;
+    const finalClothing = Math.round(ClothingPercent);
 
-    return Math.round(ClothingPercent);
+    if (finalClothing === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Clothing " + finalClothing + "%");
+      data.datasets[0].data.push(finalClothing);
+      data.datasets[0].backgroundColor.push("#4B5000");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
-
-  console.log("Clothing Takes " + Clothing() + "%");
+  Clothing();
+  // console.log("Clothing Takes " + Clothing() + "%");
 
   function Entertainment() {
     const Entertainment = expensesOneArray.filter(
@@ -150,11 +252,20 @@ export default function DetailedListOne() {
     let TotalEntertainment = Entertainment.reduce((a, b) => a + b.amount, 0);
 
     let EntertainmentPercent = (TotalEntertainment / incomeOneTotal) * 100;
+    const finalEntertainment = Math.round(EntertainmentPercent);
 
-    return Math.round(EntertainmentPercent);
+    if (finalEntertainment === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Entertainment " + finalEntertainment + "%");
+      data.datasets[0].data.push(finalEntertainment);
+      data.datasets[0].backgroundColor.push("#175000");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
-
-  console.log("Entertainment Takes " + Entertainment() + "%");
+  Entertainment();
+  // console.log("Entertainment Takes " + Entertainment() + "%");
 
   function Other() {
     const Other = expensesOneArray.filter(one => one.category === "Other");
@@ -162,25 +273,34 @@ export default function DetailedListOne() {
     // console.log(TotalOther);
 
     let OtherPercent = (TotalOther / incomeOneTotal) * 100;
+    const finalOther = Math.round(OtherPercent);
 
-    return Math.round(OtherPercent);
+    if (finalOther === 0) {
+      return null;
+    } else {
+      //Push to the Pie Chart Library
+      data.labels.push("Other " + finalOther + "%");
+      data.datasets[0].data.push(finalOther);
+      data.datasets[0].backgroundColor.push("#003350");
+      data.datasets[0].hoverBackgroundColor.push("#333");
+    }
   }
-
-  console.log("Other " + Math.round(Other()) + "%");
+  Other();
+  // console.log("Other " + Math.round(Other()) + "%");
 
   // Percentage of All Expenses from Income
 
-  function Expensepercentage() {
-    const div = ExpensesOneTotal / incomeOneTotal;
+  // function Expensepercentage() {
+  //   const div = ExpensesOneTotal / incomeOneTotal;
 
-    const percent = div * 100;
-    // console.log(percent);
+  //   const percent = div * 100;
+  //   // console.log(percent);
 
-    return Math.round(percent);
+  //   return Math.round(percent);
 
-    // .toFixed(1)
-  }
-  console.log("Expenses in total takes " + Expensepercentage() + "%");
+  //   // .toFixed(1)
+  // }
+  // // console.log("Expenses in total takes " + Expensepercentage() + "%");
 
   // Percentage of Income Left
   function incomePercentage() {
@@ -189,11 +309,10 @@ export default function DetailedListOne() {
     const percent = div * 100;
 
     let incomePercent = 100 - percent;
-
     return Math.round(incomePercent);
   }
-
-  console.log(" Income in total takes " + incomePercentage() + "%");
+  // incomePercentage();
+  // console.log(" Income in total takes " + incomePercentage() + "%");
 
   return (
     <div className="detailed-list">
@@ -201,11 +320,9 @@ export default function DetailedListOne() {
         <div
           className="analysis-wrap"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            margin: "auto",
-            width: "98%",
-            alignItems: "center"
+            margin: "20px auto",
+            width: "50%",
+            textAlign: "center"
           }}
         >
           <ul className="analysis-summary">
@@ -222,20 +339,26 @@ export default function DetailedListOne() {
               Balance ~ &#8358;{Commas(AccountOneBalance)}
             </li>
           </ul>
-          <div className="pie-chart">
-            <div className="dummy-pie"></div>
-            {/* <ul>
-              <li>Income : {incomePercentage()}%</li>
-              <li>Expenses : {Expensepercentage()}%</li>
-              <li>Feeding : {Feeding()}%</li>
-              <li>Transportation : {Transportation()}%</li>
-              <li>HealthCare : {HealthCare()}%</li>
-              <li>Telephone & Internet : {Telephone()}%</li>
-              <li>Education : {Feeding()}%</li>
-              <li>Other : {Other()}%</li>
-            </ul> */}
-          </div>
         </div>
+      </div>
+
+      <div>
+        <Pie
+          data={data}
+          width={200}
+          height={200}
+          options={{
+            title: {
+              display: true,
+              text: "Expenses By Category",
+              fontSize: 18
+            },
+            legend: {
+              display: true,
+              position: "right"
+            }
+          }}
+        />
       </div>
 
       <div className="detailed-list-head">

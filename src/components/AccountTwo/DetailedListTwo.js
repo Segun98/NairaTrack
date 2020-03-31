@@ -9,7 +9,7 @@ export default function DetailedListOne() {
 
   const [TransactionTwo] = valueTransactionTwo;
 
-  if ( ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ) return (<div> { '' }</div>)
+  if ( ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ) return (<div style={{height:"100vh"}}> { '' }</div>)
 
 
   return (

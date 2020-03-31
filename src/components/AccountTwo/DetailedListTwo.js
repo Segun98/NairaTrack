@@ -9,6 +9,9 @@ export default function DetailedListOne() {
 
   const [TransactionTwo] = valueTransactionTwo;
 
+  if ( ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ) return (<div> { '' }</div>)
+
+
   return (
     <div className="detailed-list">
     <div style={{ margin:"10px auto", width:'50%', textAlign:"center"}}>

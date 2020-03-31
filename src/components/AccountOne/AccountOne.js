@@ -91,7 +91,7 @@ export default function AccountOne() {
     setAmount("");
     setOption("");
   }
-console.log(TransactionOne);
+// console.log(TransactionOne);
 
   const LinkStyle = {
     textDecoration: "none",

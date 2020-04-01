@@ -329,14 +329,10 @@ header {
 }
 
 .acct-one-table-header h3:first-child {
-    /* text-decoration: underline; */
-    /* color: rgb(76, 146, 5); */
     font-size: 1rem;
 }
 
 .acct-one-table-header h3:last-child {
-    /* text-decoration: underline; */
-    /* color: rgb(134, 7, 7); */
     font-size: 1rem;
 }
 

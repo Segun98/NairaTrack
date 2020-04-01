@@ -130,7 +130,6 @@ export default function AccountOne() {
           <h3>Income</h3>
           <h3>Expenses</h3>
         </div>
-        <hr />
       </section>
 
       <section className="acct-one-table">

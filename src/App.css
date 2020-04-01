@@ -340,6 +340,11 @@ header {
     font-size: 1rem;
 }
 
+.acct-one-table-header h3{
+    border: 1px dashed #333;
+    padding: 5px 57.4px;
+}
+
 .acct-one-table {
     margin-top: 5px;
 

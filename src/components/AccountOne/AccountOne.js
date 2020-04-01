@@ -7,16 +7,6 @@ import Commas from "../../Commas";
 // import {animated , useTransition } from "react-spring"
 
 export default function AccountOne() {
-  
-  // const transitions = useTransition(location, location => location.pathname, {
-  //   from : {opacity: 0, width: '0%'},
-  //   enter : {opacity: 0, width: '100%'},
-  //   leave : {opacity: 0, width: '0%'},
-  // })
-  // {transitions.map(({ item: location, props, key }) => (
-  //   <animated.div key={key} style={props}>
-  //     </animated.div>
-  //        ))}
 
 
   //Radio Option State

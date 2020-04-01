@@ -23,7 +23,7 @@ export default function DetailedListOne() {
   //Pie chart Library
 
   const data = {
-    labels: ["Income " + incomePercentage() + "%"],
+    labels: ["Income"],
     datasets: [
       {
         data: [incomePercentage()],
@@ -36,6 +36,7 @@ export default function DetailedListOne() {
   // Percentage Calculation for each Category
 
   function Education() {
+    if (incomeOneTotal === 0)return null 
     const Education = expensesOneArray.filter(
       one => one.category === "Education"
     );
@@ -49,16 +50,17 @@ export default function DetailedListOne() {
     if (finalEdu === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Education " + finalEdu + "%");
-      data.datasets[0].data.push(finalEdu);
-      data.datasets[0].backgroundColor.push("#FF6384");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Education " + finalEdu + "%");
+      data.datasets[0].data.unshift(finalEdu);
+      data.datasets[0].backgroundColor.unshift("#FF6384");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Education();
 
   function Feeding() {
+    if (incomeOneTotal === 0)return null 
     const Feeding = expensesOneArray.filter(one => one.category === "Feeding");
     let TotalFeeding = Feeding.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalFeeding);
@@ -69,11 +71,11 @@ export default function DetailedListOne() {
     if (finalFeeding === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Feeding " + finalFeeding + "%");
-      data.datasets[0].data.push(finalFeeding);
-      data.datasets[0].backgroundColor.push("#36A2EB");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Feeding " + finalFeeding + "%");
+      data.datasets[0].data.unshift(finalFeeding);
+      data.datasets[0].backgroundColor.unshift("#36A2EB");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Feeding();
@@ -81,6 +83,7 @@ export default function DetailedListOne() {
   // console.log("Feeding Takes " + Feeding() + "%");
 
   function Telephone() {
+    if (incomeOneTotal === 0)return null 
     const Telephone = expensesOneArray.filter(
       one => one.category === "Telephone & Internet"
     );
@@ -94,11 +97,11 @@ export default function DetailedListOne() {
     if (finalTelephone === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Telephone " + finalTelephone + "%");
-      data.datasets[0].data.push(finalTelephone);
-      data.datasets[0].backgroundColor.push("#FFCE56");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Telephone " + finalTelephone + "%");
+      data.datasets[0].data.unshift(finalTelephone);
+      data.datasets[0].backgroundColor.unshift("#FFCE56");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
 
@@ -107,6 +110,7 @@ export default function DetailedListOne() {
   // console.log("Telephone Takes " + Telephone() + "%");
 
   function HealthCare() {
+    if (incomeOneTotal === 0)return null 
     const HealthCare = expensesOneArray.filter(
       one => one.category === "HealthCare"
     );
@@ -120,11 +124,11 @@ export default function DetailedListOne() {
     if (finalHealthCare === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("HealthCare " + finalHealthCare + "%");
-      data.datasets[0].data.push(finalHealthCare);
-      data.datasets[0].backgroundColor.push("#B21F00");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("HealthCare " + finalHealthCare + "%");
+      data.datasets[0].data.unshift(finalHealthCare);
+      data.datasets[0].backgroundColor.unshift("#B21F00");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   HealthCare();
@@ -132,6 +136,7 @@ export default function DetailedListOne() {
   // console.log("HealthCare Takes " + HealthCare() + "%");
 
   function Transportation() {
+    if (incomeOneTotal === 0)return null 
     const Transportation = expensesOneArray.filter(
       one => one.category === "Transportation"
     );
@@ -145,11 +150,11 @@ export default function DetailedListOne() {
     if (finalTransportation === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Transportation " + finalTransportation + "%");
-      data.datasets[0].data.push(finalTransportation);
-      data.datasets[0].backgroundColor.push("#C9DE00");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Transportation " + finalTransportation + "%");
+      data.datasets[0].data.unshift(finalTransportation);
+      data.datasets[0].backgroundColor.unshift("#C9DE00");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Transportation();
@@ -157,6 +162,7 @@ export default function DetailedListOne() {
   // console.log("Transportation Takes " + Transportation() + "%");
 
   function Rent() {
+    if (incomeOneTotal === 0)return null 
     const Rent = expensesOneArray.filter(one => one.category === "Rent");
     let TotalRent = Rent.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalRent);
@@ -169,17 +175,18 @@ export default function DetailedListOne() {
     if (finalRent === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Rent " + finalRent + "%");
-      data.datasets[0].data.push(finalRent);
-      data.datasets[0].backgroundColor.push("#FFC0CB");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Rent " + finalRent + "%");
+      data.datasets[0].data.unshift(finalRent);
+      data.datasets[0].backgroundColor.unshift("#FFC0CB");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Rent();
   // console.log("Rent Takes " + Rent() + "%");
 
   function Household() {
+    if (incomeOneTotal === 0)return null 
     const Household = expensesOneArray.filter(
       one => one.category === "Household"
     );
@@ -193,17 +200,18 @@ export default function DetailedListOne() {
     if (finalHousehold === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Household " + finalHousehold + "%");
-      data.datasets[0].data.push(finalHousehold);
-      data.datasets[0].backgroundColor.push("#6800B4");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Household " + finalHousehold + "%");
+      data.datasets[0].data.unshift(finalHousehold);
+      data.datasets[0].backgroundColor.unshift("#6800B4");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Household();
   // console.log("Household Takes " + Household() + "%");
 
   function Vehicle() {
+    if (incomeOneTotal === 0)return null 
     const Vehicle = expensesOneArray.filter(one => one.category === "Vehicle");
     let TotalVehicle = Vehicle.reduce((a, b) => a + b.amount, 0);
 
@@ -213,17 +221,18 @@ export default function DetailedListOne() {
     if (finalVehicle === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Vehicle " + finalVehicle + "%");
-      data.datasets[0].data.push(finalVehicle);
-      data.datasets[0].backgroundColor.push("#501800");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Vehicle " + finalVehicle + "%");
+      data.datasets[0].data.unshift(finalVehicle);
+      data.datasets[0].backgroundColor.unshift("#501800");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Vehicle();
   // console.log("Vehicle Takes " + Vehicle() + "%");
 
   function Clothing() {
+    if (incomeOneTotal === 0)return null 
     const Clothing = expensesOneArray.filter(
       one => one.category === "Clothing"
     );
@@ -235,17 +244,18 @@ export default function DetailedListOne() {
     if (finalClothing === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Clothing " + finalClothing + "%");
-      data.datasets[0].data.push(finalClothing);
-      data.datasets[0].backgroundColor.push("#4B5000");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Clothing " + finalClothing + "%");
+      data.datasets[0].data.unshift(finalClothing);
+      data.datasets[0].backgroundColor.unshift("#4B5000");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Clothing();
   // console.log("Clothing Takes " + Clothing() + "%");
 
   function Entertainment() {
+    if (incomeOneTotal === 0)return null 
     const Entertainment = expensesOneArray.filter(
       one => one.category === "Entertainment"
     );
@@ -257,17 +267,18 @@ export default function DetailedListOne() {
     if (finalEntertainment === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Entertainment " + finalEntertainment + "%");
-      data.datasets[0].data.push(finalEntertainment);
-      data.datasets[0].backgroundColor.push("#175000");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Entertainment " + finalEntertainment + "%");
+      data.datasets[0].data.unshift(finalEntertainment);
+      data.datasets[0].backgroundColor.unshift("#175000");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Entertainment();
   // console.log("Entertainment Takes " + Entertainment() + "%");
 
   function Other() {
+    if (incomeOneTotal === 0)return null 
     const Other = expensesOneArray.filter(one => one.category === "Other");
     let TotalOther = Other.reduce((a, b) => a + b.amount, 0);
     // console.log(TotalOther);
@@ -278,11 +289,11 @@ export default function DetailedListOne() {
     if (finalOther === 0) {
       return null;
     } else {
-      //Push to the Pie Chart Library
-      data.labels.push("Other " + finalOther + "%");
-      data.datasets[0].data.push(finalOther);
-      data.datasets[0].backgroundColor.push("#003350");
-      data.datasets[0].hoverBackgroundColor.push("#333");
+      //unshift to the Pie Chart Library
+      data.labels.unshift("Other " + finalOther + "%");
+      data.datasets[0].data.unshift(finalOther);
+      data.datasets[0].backgroundColor.unshift("#003350");
+      data.datasets[0].hoverBackgroundColor.unshift("#333");
     }
   }
   Other();
@@ -304,6 +315,7 @@ export default function DetailedListOne() {
 
   // Percentage of Income Left
   function incomePercentage() {
+    if (incomeOneTotal === 0)return null 
     const div = ExpensesOneTotal / incomeOneTotal;
 
     const percent = div * 100;

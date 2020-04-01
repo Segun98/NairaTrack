@@ -671,24 +671,27 @@ animation: detailed infinite ease-in-out 2s;
 .analysis {
     margin: 10px 0;
     margin-top: -40px;
-    line-height: 25px;
+    /* line-height: 25px; */
 }
 .analysis-summary {
     display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
 }
 .analysis-summary li:first-child {
     background-color: #32cd32;
     color: white;
-    /* padding: 4px 10px; */
+    padding: 4px 10px;
     border-radius: 8px 0 0 8px;
 }
 
 .analysis-summary li:nth-child(2) {
     background-color: #ff0000;
     color: white;
-    /* margin: 10px 0;
+    /* margin: 10px 0; */
     padding: 4px 10px;
-    border-radius: 0 8px 8px 0; */
+    /* border-radius: 0 8px 8px 0; */
 }
 
 

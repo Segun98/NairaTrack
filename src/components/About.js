@@ -20,8 +20,7 @@ export default function About() {
           </p>
           <br />
           <p>
-            All data is stored in your browser's local storage and not
-            accessible by the developer. This app was built with ReactJs, using
+            All data is stored in your browser's local storage. This app was built with ReactJs, using
             the ContextApi and it is a Progressive Web App (PWA). You can
             proceed to <strong> install on your home screen.</strong>{" "}
           </p>
@@ -51,7 +50,7 @@ export default function About() {
           <br />
           <p>
             Note* This app is a work in progress and I want to transform it to a
-            fullstack app and possibly a mobile app
+            MERN app, app breaking changes may occur occassionaly.
           </p>
         </div>
       </section>

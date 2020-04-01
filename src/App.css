@@ -329,18 +329,14 @@ header {
 }
 
 .acct-one-table-header h3:first-child {
-    /* text-decoration: underline; */
-    /* color: rgb(76, 146, 5); */
     font-size: 1rem;
 }
 
 .acct-one-table-header h3:last-child {
-    /* text-decoration: underline; */
-    /* color: rgb(134, 7, 7); */
     font-size: 1rem;
 }
 
-.acct-one-table-header h3{
+.acct-one-table-header h3 {
     border: 1px dashed #333;
     padding: 5px 57.4px;
 }
@@ -614,19 +610,22 @@ header {
     border-radius: 1rem;
     color: white;
     cursor: pointer;
-animation: detailed infinite ease-in-out 2s;
+    animation: detailed infinite ease-in-out 2s;
 }
+
 @keyframes detailed {
     0% {
         transform: scale(1.09);
     }
-    50%{
+
+    50% {
         transform: scale(1.05);
-        
+
     }
-    100%{
+
+    100% {
         transform: scale(1.09);
-        
+
     }
 }
 
@@ -678,12 +677,14 @@ animation: detailed infinite ease-in-out 2s;
     margin-top: -40px;
     /* line-height: 25px; */
 }
+
 .analysis-summary {
     display: flex;
     display: -ms-flexbox;
     display: -webkit-flex;
     align-items: center;
 }
+
 .analysis-summary li:first-child {
     background-color: #32cd32;
     color: white;
@@ -694,9 +695,7 @@ animation: detailed infinite ease-in-out 2s;
 .analysis-summary li:nth-child(2) {
     background-color: #ff0000;
     color: white;
-    /* margin: 10px 0; */
     padding: 4px 10px;
-    /* border-radius: 0 8px 8px 0; */
 }
 
 
@@ -727,14 +726,6 @@ animation: detailed infinite ease-in-out 2s;
 .list-two li:first-child {
     font-size: 14px;
 }
-
-/* .list-two li:nth-child(3){
-    font-size: 14px;
-}
-.list-two li:last-child {
-    font-size: 14px;
-} */
-
 
 .list-two li {
     text-align: center;

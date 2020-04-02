@@ -3,34 +3,36 @@ import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import Commas from "../../Commas";
 
 export default function DetailedListOne() {
-  const { valueTransactionTwo, AccountTwoBalance, incomeTwoTotal, ExpensesTwoTotal } = useContext(
-    AccountTwoContext
-  );
+  const {
+    valueTransactionTwo,
+    AccountTwoBalance,
+    incomeTwoTotal,
+    ExpensesTwoTotal
+  } = useContext(AccountTwoContext);
 
   const [TransactionTwo] = valueTransactionTwo;
 
-  if ( ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0 ) return (<div style={{height:"100vh"}}> { '' }</div>)
-
+  if (ExpensesTwoTotal === 0 && incomeTwoTotal === 0 && AccountTwoBalance === 0)
+    return <div style={{ height: "100vh" }}> {""}</div>;
 
   return (
     <div className="detailed-list">
-    <div style={{ margin:"10px auto", width:'50%', textAlign:"center"}}>
-    <ul className="analysis-summary-two">
-            <li>Income ~ &#8358;{Commas(incomeTwoTotal)}</li>
-            <li>Expenses ~ &#8358;{Commas(ExpensesTwoTotal)}</li>
-            <li
-              style={{
-                backgroundColor: AccountTwoBalance >= 0 ? "#32cd32" : "#ff0000",
-                color: "white",
-                padding: "4px 10px",
-                borderRadius:"8px"
-              }}
-            >
-              Balance ~ &#8358;{Commas(AccountTwoBalance)}
-            </li>
-          </ul>
-
-    </div>
+      <div style={{ margin: "10px auto", width: "55%", textAlign: "center" }}>
+        <ul className="analysis-summary-two">
+          <li>Income ~ &#8358;{Commas(incomeTwoTotal)}</li>
+          <li>Expenses ~ &#8358;{Commas(ExpensesTwoTotal)}</li>
+          <li
+            style={{
+              backgroundColor: AccountTwoBalance >= 0 ? "#32cd32" : "#ff0000",
+              color: "white",
+              padding: "4px 10px",
+              borderRadius: "8px"
+            }}
+          >
+            Balance ~ &#8358;{Commas(AccountTwoBalance)}
+          </li>
+        </ul>
+      </div>
       <div className="detailed-list-head-two">
         <h4>Date</h4>
         <h4>Name</h4>

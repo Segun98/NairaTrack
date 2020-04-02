@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Sen&display=swap");
 
 * {
     padding: 0;
@@ -12,11 +12,9 @@ html {
 }
 
 body {
-    background: whitesmoke;
     background: ghostwhite;
-    font-family: 'Be Vietnam', sans-serif;
-    font-family: 'Sen', sans-serif;
-
+    font-family: "Be Vietnam", sans-serif;
+    font-family: "Sen", sans-serif;
 }
 
 li {
@@ -31,10 +29,8 @@ p {
     color: black;
 }
 
-
 /* Index page styles */
 header {
-    background-color: #2D3436;
     background-color: #50bfbf;
     height: 90px;
     border-bottom-left-radius: 3rem;
@@ -62,7 +58,6 @@ header {
     color: rgb(224, 220, 220);
     font-size: 1.7rem;
     cursor: pointer;
-    /* padding-top: 0.6rem; */
     transition: 0.5s ease;
 }
 
@@ -83,10 +78,9 @@ header {
     }
 
     100% {
-        transform: scale(1)
+        transform: scale(1);
     }
 }
-
 
 .index-account-one-two-wrap {
     margin-top: 3rem;
@@ -96,7 +90,6 @@ header {
     grid-template-columns: 1fr;
     grid-row-gap: 2rem;
     row-gap: 2rem;
-    /* gap: 2rem; */
 }
 
 .index-account-one {
@@ -113,7 +106,6 @@ header {
     background: whitesmoke;
 }
 
-
 .index-account-one-box:hover {
     transform: scale(1.05);
 }
@@ -129,7 +121,6 @@ header {
 
     50% {
         transform: rotate(-10deg);
-
     }
 
     100% {
@@ -139,7 +130,6 @@ header {
 
 .index-account-one-box h4 {
     text-align: center;
-
 }
 
 .index-account-details-wrap {
@@ -167,7 +157,6 @@ header {
 .index-account-one button {
     border: 1px solid #85bf4b;
     background: none;
-    background-color: #2D3436;
     background-color: #85bf4b;
     padding: 5px 8px;
     margin-top: 10px;
@@ -184,17 +173,16 @@ header {
     padding-bottom: 6rem;
 }
 
-
 .index-account-two-box {
     box-shadow: 2px 2px 2px 2px rgb(143, 143, 143);
     border-radius: 1rem;
     padding: 10px 0;
     background: whitesmoke;
+    transition: ease-in 0.3s;
 }
 
 .index-account-two-box h4 {
     text-align: center;
-
 }
 
 .index-account-two-box:hover {
@@ -212,14 +200,12 @@ header {
 
     50% {
         transform: rotate(-10deg);
-
     }
 
     100% {
         transform: none;
     }
 }
-
 
 .index-account-two-income {
     text-align: center;
@@ -237,14 +223,12 @@ header {
 .index-account-two button {
     border: 1px solid #85bf4b;
     background: none;
-    background-color: #2D3436;
     background-color: #85bf4b;
     padding: 5px 8px;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     color: white;
-
 }
 
 /* END */
@@ -265,12 +249,10 @@ header {
 }
 
 .acct-one-box {
-
     box-shadow: 2px 2px 2px 2px rgb(87, 87, 87);
     border-radius: 1rem;
     padding: 15px 0;
     animation: box-one forwards 0.9s ease-in-out;
-
 }
 
 @keyframes box-one {
@@ -279,14 +261,13 @@ header {
     }
 
     100% {
-        transform: scale(1)
+        transform: scale(1);
     }
 }
 
 .acct-one-box h4 {
     text-align: center;
     font-size: 1.4rem;
-    /* text-decoration: underline; */
 }
 
 .acct-one-box p {
@@ -325,7 +306,6 @@ header {
     display: -ms-grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-
 }
 
 .acct-one-table-header h3:first-child {
@@ -336,14 +316,13 @@ header {
     font-size: 1rem;
 }
 
-.acct-one-table-header h3{
+.acct-one-table-header h3 {
     border: 1px dashed #333;
     padding: 5px 57.4px;
 }
 
 .acct-one-table {
     margin-top: 5px;
-
 }
 
 .acct-one-table-wrap {
@@ -352,10 +331,7 @@ header {
     display: -ms-grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
-    /* display: flex;
-    justify-content: space-between; */
     transition: all 1s ease-in-out;
-
 }
 
 .expense-one-list {
@@ -381,7 +357,6 @@ header {
     display: -moz-grid;
     display: -ms-grid;
     grid-template-columns: repeat(3, 1fr);
-    /* background: rgb(82, 240, 82); */
     box-shadow: 1px 1px 1px 1px rgb(146, 146, 146, 0.7);
     place-items: center;
     padding: 5px 5px;
@@ -440,12 +415,6 @@ header {
     font-size: 13px;
 }
 
-/* .name:hover {
-    /* white-space: normal; */
-/* overflow: visible; */
-/* text-overflow: initial; */
-/* } */
-
 .amount {
     width: 3.6rem;
     white-space: nowrap;
@@ -473,7 +442,6 @@ header {
     font-size: 1rem;
 }
 
-
 .account-one-form {
     margin: auto;
     width: 70%;
@@ -493,7 +461,6 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     place-items: center;
-
 }
 
 .radio-buttons {
@@ -513,7 +480,6 @@ header {
     margin-top: 5px;
     border: 1px solid #85bf4b;
     background: none;
-    background-color: #2D3436;
     background-color: #85bf4b;
     padding: 5px 25px;
     border-radius: 5px;
@@ -531,7 +497,7 @@ header {
 }
 
 .input-text:focus {
-    border-bottom: 1px solid #DFE6E9;
+    border-bottom: 1px solid #dfe6e9;
 }
 
 .input-radio {
@@ -542,13 +508,11 @@ header {
     border: none;
 }
 
-
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #2D3436;
     background: #50bfbf;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -563,7 +527,6 @@ header {
     margin: auto;
     width: 85%;
     align-items: center;
-
 }
 
 .footer-item {
@@ -610,28 +573,27 @@ header {
     border-radius: 1rem;
     color: white;
     cursor: pointer;
-animation: detailed infinite ease-in-out 2s;
+    animation: detailed infinite ease-in-out 2s;
 }
+
 @keyframes detailed {
     0% {
         transform: scale(1.09);
     }
-    50%{
+
+    50% {
         transform: scale(1.05);
-        
     }
-    100%{
+
+    100% {
         transform: scale(1.09);
-        
     }
 }
 
 .det-list {
     padding: 5px 0;
     margin: 5px auto;
-    border-radius: 15px;
     box-shadow: 1px 1px 1px 1px rgb(143, 143, 143);
-
 }
 
 .list {
@@ -672,14 +634,15 @@ animation: detailed infinite ease-in-out 2s;
 .analysis {
     margin: 10px 0;
     margin-top: -40px;
-    /* line-height: 25px; */
 }
+
 .analysis-summary {
     display: flex;
     display: -ms-flexbox;
     display: -webkit-flex;
     align-items: center;
 }
+
 .analysis-summary li:first-child {
     background-color: #32cd32;
     color: white;
@@ -690,23 +653,18 @@ animation: detailed infinite ease-in-out 2s;
 .analysis-summary li:nth-child(2) {
     background-color: #ff0000;
     color: white;
-    /* margin: 10px 0; */
     padding: 4px 10px;
-    /* border-radius: 0 8px 8px 0; */
 }
-
 
 .analysis ul li {
     font-size: 14px;
 }
-
 
 /* Business Account */
 
 .det-list-two {
     padding: 5px 0;
     margin: 5px auto;
-    border-radius: 15px;
     box-shadow: 1px 1px 1px 1px rgb(143, 143, 143);
 }
 
@@ -717,20 +675,11 @@ animation: detailed infinite ease-in-out 2s;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
     margin: auto;
     width: 98%;
-
 }
 
 .list-two li:first-child {
     font-size: 14px;
 }
-
-/* .list-two li:nth-child(3){
-    font-size: 14px;
-}
-.list-two li:last-child {
-    font-size: 14px;
-} */
-
 
 .list-two li {
     text-align: center;
@@ -779,7 +728,6 @@ animation: detailed infinite ease-in-out 2s;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgb(0, 0, 0, 0.4);
 }
 
@@ -797,7 +745,6 @@ animation: detailed infinite ease-in-out 2s;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgb(0, 0, 0, 0.4);
 }
 
@@ -831,7 +778,6 @@ animation: detailed infinite ease-in-out 2s;
     cursor: pointer;
     font-weight: bold;
 }
-
 
 .modal-body {
     margin: 20px 0;
@@ -891,9 +837,7 @@ animation: detailed infinite ease-in-out 2s;
     font-size: 1.8rem;
 }
 
-
 /* End nav  */
-
 
 /* SETTINGS PAGE  */
 
@@ -906,7 +850,6 @@ animation: detailed infinite ease-in-out 2s;
 .settings-page button {
     border: 1px solid #85bf4b;
     background: none;
-    background-color: rgb(36, 36, 39);
     background-color: #85bf4b;
     padding: 5px 8px;
     border-radius: 5px;
@@ -943,12 +886,9 @@ animation: detailed infinite ease-in-out 2s;
     height: 30px;
 }
 
-
-
-
 /* ENd  */
 
-@media only screen and (min-width:480px) {
+@media only screen and (min-width: 480px) {
     html {
         background: white;
     }
@@ -960,7 +900,6 @@ animation: detailed infinite ease-in-out 2s;
 
     .footer {
         position: static;
-
     }
 
     .navigation {
@@ -972,6 +911,4 @@ animation: detailed infinite ease-in-out 2s;
     .navigation.open-nav {
         margin-left: 0;
     }
-
-
 }

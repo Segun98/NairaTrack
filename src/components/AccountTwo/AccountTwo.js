@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AccountTwoContext } from "../../Contexts/AccountTwo";
 import IncomeTwoList from "./IncomeTwoList";
 import ExpensesTwoList from "./ExpensesTwoList";
 import Commas from "../../Commas";
+import axios from "axios";
 
 export default function AccountTwo() {
   //Radio Option State
@@ -36,17 +37,16 @@ export default function AccountTwo() {
   //Income and expenses from Context
 
   const {
-    valueTransactionTwo,
     incomeTwoTotal,
     ExpensesTwoTotal,
     AccountTwoBalance,
     expensesTwoArray,
-    incomeTwoArray
+    incomeTwoArray,
+    getTransactionsTwo,
   } = useContext(AccountTwoContext);
 
-  const [TransactionTwo, setTransactionTwo] = valueTransactionTwo;
-
-  function handleFormSubmit(e) {
+  //Add Transactions to database
+  async function handleFormSubmit(e) {
     e.preventDefault();
     const months = [
       "Jan",
@@ -60,7 +60,7 @@ export default function AccountTwo() {
       "Sep",
       "Oct",
       "Nov",
-      "Dec"
+      "Dec",
     ];
 
     const newTransaction = {
@@ -70,19 +70,38 @@ export default function AccountTwo() {
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
       type: Option,
       Units,
-      unitPrice: Amount
+      unitPrice: Amount,
     };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      await axios.post(
+        "http://localhost:5000/api/business/add",
+        newTransaction,
+        config
+      );
+      setName("");
+      setAmount("");
+      setOption("");
+      setUnits(1);
 
-    setTransactionTwo([...TransactionTwo, newTransaction]);
-    setName("");
-    setAmount("");
-    setOption("");
-    setUnits(1);
+      await getTransactionsTwo();
+    } catch (err) {
+      console.log(err.response.data);
+      alert("an error occured");
+    }
   }
-
+  // getTransactions
+  useEffect(() => {
+    getTransactionsTwo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const LinkStyle = {
     textDecoration: "none",
-    color: "whitesmoke"
+    color: "whitesmoke",
   };
   return (
     <div className="account-One-page">
@@ -94,7 +113,7 @@ export default function AccountTwo() {
             incomeTwoTotal === 0 &&
             AccountTwoBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <div className="acct-one-box">
@@ -120,7 +139,7 @@ export default function AccountTwo() {
             incomeTwoTotal === 0 &&
             AccountTwoBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <div className="acct-one-table-header">
@@ -136,7 +155,7 @@ export default function AccountTwo() {
               <IncomeTwoList
                 key={index}
                 date={incomeTwoList.date}
-                id={incomeTwoList.id}
+                id={incomeTwoList._id}
                 amount={incomeTwoList.amount}
                 name={incomeTwoList.name}
               />
@@ -146,7 +165,7 @@ export default function AccountTwo() {
             {expensesTwoArray.map((expensesTwoList, index) => (
               <ExpensesTwoList
                 key={index}
-                id={expensesTwoList.id}
+                id={expensesTwoList._id}
                 name={expensesTwoList.name}
                 date={expensesTwoList.date}
                 amount={expensesTwoList.amount}
@@ -163,7 +182,7 @@ export default function AccountTwo() {
             incomeTwoTotal === 0 &&
             AccountTwoBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <Link to="business-account-detailed-list" style={LinkStyle}>
@@ -227,7 +246,7 @@ export default function AccountTwo() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <input
@@ -245,7 +264,7 @@ export default function AccountTwo() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <input

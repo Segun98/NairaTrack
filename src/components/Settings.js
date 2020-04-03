@@ -1,54 +1,56 @@
 import React, { useContext, useState } from "react";
 import { AccountOneContext } from "../Contexts/AccountOne";
-import { AccountTwoContext } from "../Contexts/AccountTwo";
-import { useHistory } from "react-router-dom";
+// import { AccountTwoContext } from "../Contexts/AccountTwo";
+// import { useHistory } from "react-router-dom";
 
 export default function Settings() {
+
+  // ALL CODES COMMENTED ARE BECAUSE I DONT KNOW HOW TO DELETE ALL ITEMS FROM A DATABASE, THE CODES WORKED WHEN DATA WAS STORED IN STATE
   
-  let history = useHistory();
+  // let history = useHistory();
   //alert name when changed
   const [alertName, setalertName] = useState(false);
 
-  const { inputName, setinputName, setName, valueTransactionOne } = useContext(
+  const { inputName, setinputName, setName} = useContext(
     AccountOneContext
   );
 
-  const [TransactionOne, setTransactionOne] = valueTransactionOne;
+  // const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
-  const { valueTransactionTwo } = useContext(AccountTwoContext);
+  // const { valueTransactionTwo } = useContext(AccountTwoContext);
 
-  const [TransactionTwo, setTransactionTwo] = valueTransactionTwo;
+  // const [TransactionTwo, setTransactionTwo] = valueTransactionTwo;
 
-  const [Modal, setModal] = useState(true);
-  const [ModalTwo, setModalTwo] = useState(true);
+  // const [Modal, setModal] = useState(true);
+  // const [ModalTwo, setModalTwo] = useState(true);
 
-  function handleDelete() {
-    const newAccountOne = TransactionOne.filter(
-      trans => trans === TransactionOne
-    );
-    setTransactionOne(newAccountOne);
-    setModal(true);
-    history.push("/account-one");
-  }
-  function deleteItem() {
-    setModal(false);
-  }
+  // function handleDelete() {
+  //   const newAccountOne = TransactionOne.filter(
+  //     trans => trans === TransactionOne
+  //   );
+  //   setTransactionOne(newAccountOne);
+  //   setModal(true);
+  //   history.push("/account-one");
+  // }
+  // function deleteItem() {
+  //   setModal(false);
+  // }
 
-  function handleDeleteTwo() {
-    const newAccountTwo = TransactionTwo.filter(
-      trans => trans === TransactionTwo
-    );
-    setTransactionTwo(newAccountTwo);
-    setModalTwo(true);
-    history.push("/account-two");
-  }
-  function deleteItemTwo() {
-    setModalTwo(false);
-  }
+  // function handleDeleteTwo() {
+  //   const newAccountTwo = TransactionTwo.filter(
+  //     trans => trans === TransactionTwo
+  //   );
+  //   setTransactionTwo(newAccountTwo);
+  //   setModalTwo(true);
+  //   history.push("/account-two");
+  // }
+  // function deleteItemTwo() {
+  //   setModalTwo(false);
+  // }
 
   return (
     <div className="settings-page">
-      <div className={Modal ? "modal" : "modal close-modal"}>
+      {/* <div className={Modal ? "modal" : "modal close-modal"}>
         <div className="modal-content">
           <div className="modal-head">
             <p>Delete Account</p>
@@ -65,15 +67,15 @@ export default function Settings() {
               Are you sure you want to delete PERSONAL ACCOUNT? All data will be
               lost and cannot be recovered.
             </h4>
-          </div>
-          <div className="modal-footer">
+          </div> */}
+          {/* <div className="modal-footer">
             <div></div>
             <button onClick={handleDelete}>Delete</button>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className={ModalTwo ? "modal-two" : "modal-two close-modal"}>
+      {/* <div className={ModalTwo ? "modal-two" : "modal-two close-modal"}>
         <div className="modal-content">
           <div className="modal-head">
             <p>Delete Account</p>
@@ -96,7 +98,7 @@ export default function Settings() {
             <button onClick={handleDeleteTwo}>Delete</button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <section className="change-name">
         <div>
@@ -136,7 +138,7 @@ export default function Settings() {
           Name changed successfuly!
         </div>
       </section>
-      <section className="delete-accounts">
+      {/* <section className="delete-accounts">
         <div>
           <h4 style={{ textAlign: "center", marginBottom: "20px" }}>
             Delete Accounts{" "}
@@ -185,7 +187,7 @@ export default function Settings() {
             Delete
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

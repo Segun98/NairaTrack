@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AccountOneContext } from "../../Contexts/AccountOne";
 import IncomeOneList from "./IncomeOneList";
 import ExpensesOneList from "./ExpensesOneList";
 import Commas from "../../Commas";
-// import {animated , useTransition } from "react-spring"
+import axios from "axios";
 
 export default function AccountOne() {
-
-
   //Radio Option State
   const [Option, setOption] = useState("");
 
@@ -37,21 +35,17 @@ export default function AccountOne() {
 
   //Income and expenses from Context
   const {
-    valueTransactionOne,
     incomeOneTotal,
     ExpensesOneTotal,
     AccountOneBalance,
     expensesOneArray,
-    incomeOneArray
+    incomeOneArray,
+    getTransactions,
   } = useContext(AccountOneContext);
 
-  const [TransactionOne, setTransactionOne] = valueTransactionOne;
 
-  // const transition = useTransition(TransactionOne )
-
-
-  // Submit Form to add transaction
-  function handleFormSubmit(e) {
+  // Submit Form to database
+  async function handleFormSubmit(e) {
     e.preventDefault();
     const months = [
       "Jan",
@@ -65,7 +59,7 @@ export default function AccountOne() {
       "Sep",
       "Oct",
       "Nov",
-      "Dec"
+      "Dec",
     ];
 
     const newTransaction = {
@@ -74,18 +68,41 @@ export default function AccountOne() {
       amount: parseInt(Amount),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,
       type: Option,
-      category: `${Option === "Income" ? "Income" : Category === ""? "Other" : Category}`
+      category: `${
+        Option === "Income" ? "Income" : Category === "" ? "Other" : Category
+      }`,
     };
-    setTransactionOne([...TransactionOne, newTransaction]);
-    setName("");
-    setAmount("");
-    setOption("");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      await axios.post(
+        "http://localhost:5000/api/personal/add",
+        newTransaction,
+        config
+      );
+      setName("");
+      setAmount("");
+      setOption("");
+
+      await getTransactions();
+    } catch (err) {
+      console.log(err.response.data);
+      alert("an error occured");
+    }
   }
-// console.log(TransactionOne);
+
+  // getTransactions
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const LinkStyle = {
     textDecoration: "none",
-    color: "whitesmoke"
+    color: "whitesmoke",
   };
   return (
     <div className="account-one-page">
@@ -97,7 +114,7 @@ export default function AccountOne() {
             incomeOneTotal === 0 &&
             AccountOneBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <div className="acct-one-box">
@@ -123,7 +140,7 @@ export default function AccountOne() {
             incomeOneTotal === 0 &&
             AccountOneBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <div className="acct-one-table-header">
@@ -139,7 +156,7 @@ export default function AccountOne() {
               <IncomeOneList
                 key={index}
                 date={incomeOneList.date}
-                id={incomeOneList.id}
+                id={incomeOneList._id}
                 amount={incomeOneList.amount}
                 name={incomeOneList.name}
               />
@@ -149,7 +166,7 @@ export default function AccountOne() {
             {expensesOneArray.map((expensesOneList, index) => (
               <ExpensesOneList
                 key={index}
-                id={expensesOneList.id}
+                id={expensesOneList._id}
                 name={expensesOneList.name}
                 date={expensesOneList.date}
                 amount={expensesOneList.amount}
@@ -166,7 +183,7 @@ export default function AccountOne() {
             incomeOneTotal === 0 &&
             AccountOneBalance === 0
               ? "none"
-              : "block"
+              : "block",
         }}
       >
         <Link to="personal-account-detailed-list" style={LinkStyle}>
@@ -217,7 +234,7 @@ export default function AccountOne() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <input
@@ -235,7 +252,7 @@ export default function AccountOne() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
               }}
             >
               <input
@@ -254,7 +271,7 @@ export default function AccountOne() {
             style={{
               margin: "20px 0",
               cursor: "pointer",
-              display: Option === "Expense" ? "block" : "none"
+              display: Option === "Expense" ? "block" : "none",
             }}
           >
             <label htmlFor="Category"> Category:</label>
@@ -267,7 +284,7 @@ export default function AccountOne() {
                 marginTop: "10px",
                 border: "none",
                 borderBottom: "1px solid grey",
-                background: "ghostwhite"
+                background: "ghostwhite",
               }}
             >
               <option value="">--select--</option>

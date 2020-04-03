@@ -1,13 +1,27 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
+import axios from "axios";
 
 export const AccountTwoContext = createContext();
 
 export function AccountTwoProvider(props) {
-  const [TransactionTwo, setTransactionTwo] = useState(StoreTransactionTwo);
+  const [TransactionTwo, setTransactionTwo] = useState([]);
 
+  //GET transactions from the database
+
+  async function getTransactionsTwo() {
+    try {
+      const res = await axios.get("http://localhost:5000/api/business");
+      // console.log(res.data);
+      const data = res.data.data;
+      setTransactionTwo(data);
+    } catch (err) {
+      console.log(err);
+      alert(err.response.data);
+    }
+  }
   //Filtered Expense and income
-  const expensesTwoArray = TransactionTwo.filter(t => t.type === "Expense");
-  const incomeTwoArray = TransactionTwo.filter(t => t.type === "Income");
+  const expensesTwoArray = TransactionTwo.filter((t) => t.type === "Expense");
+  const incomeTwoArray = TransactionTwo.filter((t) => t.type === "Income");
 
   // find total
   const ExpensesTwoTotal = expensesTwoArray.reduce((a, b) => a + b.amount, 0);
@@ -16,18 +30,18 @@ export function AccountTwoProvider(props) {
   // finds the balance
   const AccountTwoBalance = incomeTwoTotal - ExpensesTwoTotal;
 
-  //PERSIST INPUTS TO LOCAL STORAGE
+  //PERSIST INPUTS TO LOCAL STORAGE - Now connected to Database
 
-  useEffect(() => {
-    localStorage.setItem("TransactionTwo", JSON.stringify(TransactionTwo));
-  }, [TransactionTwo]);
+  // useEffect(() => {
+  //   localStorage.setItem("TransactionTwo", JSON.stringify(TransactionTwo));
+  // }, [TransactionTwo]);
 
-  function StoreTransactionTwo() {
-    const SavedTransactionTwo = JSON.parse(
-      localStorage.getItem("TransactionTwo")
-    );
-    return SavedTransactionTwo || [];
-  }
+  // function StoreTransactionTwo() {
+  //   const SavedTransactionTwo = JSON.parse(
+  //     localStorage.getItem("TransactionTwo")
+  //   );
+  //   return SavedTransactionTwo || [];
+  // }
 
   return (
     <AccountTwoContext.Provider
@@ -37,7 +51,8 @@ export function AccountTwoProvider(props) {
         ExpensesTwoTotal,
         AccountTwoBalance,
         expensesTwoArray,
-        incomeTwoArray
+        incomeTwoArray,
+        getTransactionsTwo,
       }}
     >
       {props.children}

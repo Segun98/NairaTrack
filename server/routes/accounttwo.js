@@ -65,7 +65,7 @@ route.delete('/delete/:id', async (req, res) => {
             message: "transaction has been deleted"
         })
     } catch (err) {
-            res.json({
+            return res.json({
                 succes: false,
                 message:"internal server error",
                 err

@@ -20,8 +20,8 @@ export default function About() {
           </p>
           <br />
           <p>
-            All data is stored in your browser's local storage. This app was built with ReactJs, using
-            the ContextApi and it is a Progressive Web App (PWA). You can
+            All data is stored securely in a database. This app was built with ReactJs, using
+            the ContextApi, MongoDB, ExpressJs and NodeJs(MERN) and it is a Progressive Web App (PWA). You can
             proceed to <strong> install on your home screen.</strong>{" "}
           </p>
           <br />
@@ -49,8 +49,7 @@ export default function About() {
           </p>
           <br />
           <p>
-            Note* This app is a work in progress and I want to transform it to a
-            MERN app, app breaking changes may occur occassionaly.
+            Note* This app is a work in progress, changes will occur occassionaly.
           </p>
         </div>
       </section>

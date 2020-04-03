@@ -1,21 +1,33 @@
 import React, { useContext, useState } from "react";
 import Commas from "../../Commas";
 import { AccountTwoContext } from "../../Contexts/AccountTwo";
+import axios from "axios";
 
 export default function IncomeTwoList({ name, date, amount, id }) {
-  const { valueTransactionTwo } = useContext(AccountTwoContext);
-  const [TransactionTwo, setTransactionTwo] = valueTransactionTwo;
+  const { getTransactionsTwo } = useContext(AccountTwoContext);
 
   const [Modal, setModal] = useState(true);
 
-  function handleDelete() {
-    const newExpensesTwo = TransactionTwo.filter(two => two.id !== id);
-    setTransactionTwo(newExpensesTwo);
-    setModal(true);
+  async function handleDelete() {
+    try {
+      await axios.delete(`http://localhost:5000/api/business/delete/${id}`);
+      setModal(true);
+      getTransactionsTwo();
+    } catch (err) {
+      alert(err.response.data);
+      console.log(err.response.data);
+    }
   }
+
   function deleteItem() {
     setModal(false);
   }
+  //Deletion before Database
+  // function handleDelete() {
+  //   const newExpensesTwo = TransactionTwo.filter(two => two.id !== id);
+  //   setTransactionTwo(newExpensesTwo);
+  //   setModal(true);
+  // }
 
   return (
     <div>
@@ -42,8 +54,8 @@ export default function IncomeTwoList({ name, date, amount, id }) {
       </div>
       <div className="income-one-list">
         <div className="deltebtn-income" title="delete" onClick={deleteItem}>
-          {/* <i className="far fa-trash-alt"></i> */}
-          <i className="fas fa-minus-circle"></i>
+          <i className="far fa-trash-alt"></i>
+          {/* <i className="fas fa-minus-circle"></i> */}
         </div>
         <div className="income-one-details">
           <div className="date">{date}</div>

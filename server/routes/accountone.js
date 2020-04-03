@@ -52,7 +52,6 @@ route.post('/add', async (req, res) => {
 })
 
 route.delete('/delete/:id', async (req, res) => {
-    console.log(req.params);
 
     try {
         const transaction = await accountOne.findById(req.params.id)
@@ -65,7 +64,7 @@ route.delete('/delete/:id', async (req, res) => {
             message: "transaction has been deleted"
         })
     } catch (err) {
-        res.json({
+        return res.json({
             succes: false,
             message: "internal server error",
             err
@@ -73,6 +72,5 @@ route.delete('/delete/:id', async (req, res) => {
     }
 
 })
-
 
 module.exports = route

@@ -1,17 +1,21 @@
 import React, { useContext, useState } from "react";
 import Commas from "../../Commas";
 import { AccountOneContext } from "../../Contexts/AccountOne";
+import axios from "axios";
 
 export default function IncomeOneList({ name, date, amount, id }) {
-  const { valueTransactionOne } = useContext(AccountOneContext);
-  const [TransactionOne, setTransactionOne] = valueTransactionOne;
+  const { getTransactions } = useContext(AccountOneContext);
 
   const [Modal, setModal] = useState(true);
 
-  function handleDelete() {
-    const newIncome = TransactionOne.filter(one => one.id !== id);
-    setTransactionOne(newIncome);
-    setModal(true);
+  async function handleDelete() {
+    try {
+      await axios.delete(`http://localhost:5000/api/personal/delete/${id}`);
+      setModal(true);
+      getTransactions();
+    } catch (err) {
+      alert(err.response.data);
+    }
   }
   function deleteItem() {
     setModal(false);

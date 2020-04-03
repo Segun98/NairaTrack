@@ -1,10 +1,25 @@
 import React, { createContext, useState, useEffect } from "react";
+import axios from 'axios'
 
 export const AccountOneContext = createContext();
 
 export function AccountOneProvider(props) {
   //Transaction State
-  const [TransactionOne, setTransactionOne] = useState(StoreTransactionOne);
+  const [TransactionOne, setTransactionOne] = useState([]);
+
+   //GET transactions from the database
+
+ async function getTransactions() {
+  try {
+    const res = await axios.get('http://localhost:5000/api/personal')
+    // console.log(res.data);
+    const data = res.data.data
+    setTransactionOne(data)
+  } catch (err) {
+    console.log(err);
+    
+  }
+}
 
   //Filtered Expense and income
   const expensesOneArray = TransactionOne.filter(t => t.type === "Expense");
@@ -17,19 +32,6 @@ export function AccountOneProvider(props) {
   // finds the balance
 
   const AccountOneBalance = incomeOneTotal - ExpensesOneTotal;
-
-  //PERSIST INPUTS TO LOCAL STORAGE
-
-  useEffect(() => {
-    localStorage.setItem("TransactionOne", JSON.stringify(TransactionOne));
-  }, [TransactionOne]);
-
-  function StoreTransactionOne() {
-    const SavedTransactionOne = JSON.parse(
-      localStorage.getItem("TransactionOne")
-    );
-    return SavedTransactionOne || [];
-  }
 
   // Change Name
 
@@ -53,6 +55,7 @@ export function AccountOneProvider(props) {
         AccountOneBalance,
         expensesOneArray,
         incomeOneArray,
+        getTransactions,
         Name,
         setName,
         inputName,

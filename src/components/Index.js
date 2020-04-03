@@ -1,16 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AccountOneContext } from "../Contexts/AccountOne";
 import { AccountTwoContext } from "../Contexts/AccountTwo";
 import { Link } from "react-router-dom";
 import Commas from "../Commas";
 
 export default function Index() {
-  const { incomeOneTotal, ExpensesOneTotal, AccountOneBalance } = useContext(
+  const { incomeOneTotal, ExpensesOneTotal, AccountOneBalance, getTransactions } = useContext(
     AccountOneContext
   );
-  const { incomeTwoTotal, ExpensesTwoTotal, AccountTwoBalance } = useContext(
+  const { incomeTwoTotal, ExpensesTwoTotal, AccountTwoBalance, getTransactionsTwo} = useContext(
     AccountTwoContext
   );
+// getTransactions 
+useEffect(() => {
+  getTransactions();
+  getTransactionsTwo()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   // Quotes
   const quotes = [

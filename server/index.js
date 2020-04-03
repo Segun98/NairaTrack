@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const app = express()
 const cors = require('cors')
 const connectDB = require('./db')
+const path = require('path')
 
 dotenv.config()
 
@@ -14,6 +15,15 @@ const accounttwo = require('./routes/accounttwo')
 
 app.use('/api/personal', accountone)
 app.use('/api/business', accounttwo)
+
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static( '../build' ));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../nairatrack', 'build', 'index.html')); // relative path
+    });
+}
 
 const PORT = process.env.PORT || 5000
 

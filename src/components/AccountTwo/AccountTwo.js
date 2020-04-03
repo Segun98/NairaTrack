@@ -79,7 +79,7 @@ export default function AccountTwo() {
     };
     try {
       await axios.post(
-        "http://localhost:5000/api/business/add",
+        "/api/business/add",
         newTransaction,
         config
       );

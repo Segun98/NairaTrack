@@ -11,7 +11,7 @@ export function AccountOneProvider(props) {
 
  async function getTransactions() {
   try {
-    const res = await axios.get('http://localhost:5000/api/personal')
+    const res = await axios.get('/api/personal')
     // console.log(res.data);
     const data = res.data.data
     setTransactionOne(data)

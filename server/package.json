@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index",
     "server": "nodemon index",
-    "heroku-postbuild": "cd .. && npm install && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd .. && npm install && npm run build",
     "client": "cd .. && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

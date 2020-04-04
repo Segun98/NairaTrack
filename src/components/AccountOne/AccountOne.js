@@ -79,7 +79,7 @@ export default function AccountOne() {
     };
     try {
       await axios.post(
-        "/api/personal/add",
+        "http://localhost:5000/api/personal/add",
         newTransaction,
         config
       );
@@ -89,7 +89,6 @@ export default function AccountOne() {
 
       await getTransactions();
     } catch (err) {
-      console.log(err.response.data);
       alert("an error occured");
     }
   }

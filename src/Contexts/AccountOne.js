@@ -11,12 +11,11 @@ export function AccountOneProvider(props) {
 
  async function getTransactions() {
   try {
-    const res = await axios.get('/api/personal')
+    const res = await axios.get('http://localhost:5000/api/personal')
     // console.log(res.data);
     const data = res.data.data
     setTransactionOne(data)
   } catch (err) {
-    console.log(err.response.data);
     alert('an error occured')
   }
 }

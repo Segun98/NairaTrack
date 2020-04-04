@@ -10,11 +10,11 @@ export default function ExpensesTwoList({ name, date, amount, id }) {
 
   async function handleDelete() {
     try {
-      await axios.delete(`/api/business/delete/${id}`);
+      await axios.delete(`http://localhost:5000/api/business/delete/${id}`);
       setModal(true);
       getTransactionsTwo();
     } catch (err) {
-      alert(err.response.data);
+      alert('an error occured');
     }
   }
 

@@ -10,11 +10,11 @@ export default function ExpensesOneList({ name, date, amount, id }) {
 
   async function handleDelete() {
     try {
-      await axios.delete(`/api/personal/delete/${id}`);
+      await axios.delete(`http://localhost:5000/api/personal/delete/${id}`);
       setModal(true);
       getTransactions();
     } catch (err) {
-      alert(err.response.data);
+      alert('an error occured');
     }
   }
   function deleteItem() {

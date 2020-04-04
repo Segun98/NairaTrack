@@ -79,7 +79,7 @@ export default function AccountTwo() {
     };
     try {
       await axios.post(
-        "/api/business/add",
+        "http://localhost:5000/api/business/add",
         newTransaction,
         config
       );
@@ -90,7 +90,6 @@ export default function AccountTwo() {
 
       await getTransactionsTwo();
     } catch (err) {
-      console.log(err.response.data);
       alert("an error occured");
     }
   }

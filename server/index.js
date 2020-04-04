@@ -17,14 +17,14 @@ app.use('/api/personal', accountone)
 app.use('/api/business', accounttwo)
 
 
-    app.use(express.static( '../build' ));
+app.use(express.static('../build'));
 
-    app.get('*', (req, res) => {
-        // res.sendFile(path.join(__dirname, '../build'))
-        res.sendFile(path.join(__dirname, 'cd ..', 'build', 'index.html'));
-    })
+app.get('*', (req, res) => {
+    // res.sendFile(path.join(__dirname, '../build'))
+    res.sendFile(path.join(__dirname, 'cd ..', 'build', 'index.html'));
+})
 
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => console.log('server running on ' + PORT))

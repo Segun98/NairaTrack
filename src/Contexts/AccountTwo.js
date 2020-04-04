@@ -15,8 +15,7 @@ export function AccountTwoProvider(props) {
       const data = res.data.data;
       setTransactionTwo(data);
     } catch (err) {
-      console.log(err);
-      alert('an error occured');
+      console.log('internal error');
     }
   }
   //Filtered Expense and income

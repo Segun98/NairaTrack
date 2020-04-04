@@ -16,7 +16,8 @@ export function AccountOneProvider(props) {
     const data = res.data.data
     setTransactionOne(data)
   } catch (err) {
-    alert('an error occured')
+    console.log('internal error');
+    
   }
 }
 

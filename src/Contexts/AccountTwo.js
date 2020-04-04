@@ -10,7 +10,7 @@ export function AccountTwoProvider(props) {
 
   async function getTransactionsTwo() {
     try {
-      const res = await axios.get("http://localhost:5000/api/business");
+      const res = await axios.get("/api/business");
       // console.log(res.data);
       const data = res.data.data;
       setTransactionTwo(data);

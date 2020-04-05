@@ -15,20 +15,24 @@ connectDB()
 
 app.use(express.json())
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({
+    extended: false
+}));
 
 app.use(cors())
 
 app.use('/api/personal', accountone)
 app.use('/api/business', accounttwo)
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('../build'));
 
-app.use(express.static('../build'));
+    app.get('*', (req, res) => {
+        // res.sendFile(path.join(__dirname, '../build'))
+        res.sendFile(path.join(__dirname, 'cd ..', 'build', 'index.html'));
+    })
 
-app.get('*', (req, res) => {
-    // res.sendFile(path.join(__dirname, '../build'))
-    res.sendFile(path.join(__dirname, 'cd ..', 'build', 'index.html'));
-})
+}
 
 
 

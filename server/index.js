@@ -7,8 +7,14 @@ const path = require('path')
 
 dotenv.config()
 
+const PORT = process.env.PORT || 8080
+
 connectDB()
+
 app.use(express.json())
+
+app.use(express.urlencoded({ extended: false}));
+
 app.use(cors())
 const accountone = require('./routes/accountone')
 const accounttwo = require('./routes/accounttwo')
@@ -25,6 +31,5 @@ app.get('*', (req, res) => {
 })
 
 
-const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => console.log('server running on ' + PORT))

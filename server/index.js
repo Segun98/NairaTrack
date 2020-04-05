@@ -4,6 +4,8 @@ const app = express()
 const cors = require('cors')
 const connectDB = require('./db')
 const path = require('path')
+const accountone = require('./routes/accountone')
+const accounttwo = require('./routes/accounttwo')
 
 dotenv.config()
 
@@ -16,8 +18,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false}));
 
 app.use(cors())
-const accountone = require('./routes/accountone')
-const accounttwo = require('./routes/accounttwo')
 
 app.use('/api/personal', accountone)
 app.use('/api/business', accounttwo)

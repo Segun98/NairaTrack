@@ -4,11 +4,9 @@
   "description": "nairatrack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm install && node index.js",
     "server": "nodemon index",
-    "build": "cd .. && npm run build",
-    "install-client" : "cd .. && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "cd .. && npm install && npm run build",
     "client": "cd .. && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

@@ -11,7 +11,7 @@ dotenv.config()
 
 const PORT = process.env.PORT || 8080
 
-// connectDB()
+connectDB()
 
 app.use(express.json())
 

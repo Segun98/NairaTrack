@@ -63,7 +63,6 @@ export default function AccountOne() {
     ];
 
     const newTransaction = {
-      id: `${Math.floor(Math.random() * 4489940000)}`,
       name: Name,
       amount: parseInt(Amount),
       date: `${months[new Date().getMonth()]} ${new Date().getDate()}`,

@@ -13,6 +13,8 @@ export function AccountTwoProvider(props) {
       const res = await axios.get("/api/business");
       // console.log(res.data);
       const data = res.data.data;
+      console.log(data);
+      
       setTransactionTwo(data);
     } catch (err) {
       console.log('internal error');

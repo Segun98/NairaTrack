@@ -11,9 +11,11 @@ export function AccountOneProvider(props) {
 
  async function getTransactions() {
   try {
-    const res = await axios.get('/api/personal')
-    // console.log(res.data);
+    const res = await axios.get('/api/personal');
+    console.log(res.data);
     const data = res.data.data
+    console.log(data);
+    
     setTransactionOne(data)
   } catch (err) {
     console.log('internal error');

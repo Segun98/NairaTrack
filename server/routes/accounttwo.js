@@ -20,7 +20,7 @@ route.get('/', async (req, res) => {
 })
 
 route.post('/add', async (req, res) => {
-
+    console.log(req.body)
     const {
         name,
         amount,

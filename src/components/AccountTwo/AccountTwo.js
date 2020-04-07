@@ -90,7 +90,7 @@ export default function AccountTwo() {
 
       await getTransactionsTwo();
     } catch (err) {
-      alert("an error occured");
+      console.log('internal server error');
     }
   }
   // getTransactions

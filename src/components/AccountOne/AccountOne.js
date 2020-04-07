@@ -89,7 +89,8 @@ export default function AccountOne() {
 
       await getTransactions();
     } catch (err) {
-      alert("an error occured");
+     console.log('internal server error');
+     
     }
   }
 

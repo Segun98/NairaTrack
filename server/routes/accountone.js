@@ -20,6 +20,7 @@ route.get('/', async (req, res) => {
 })
 
 route.post('/add', async (req, res) => {
+    console.log(req.body)
 
     const {
         name,
@@ -60,12 +61,12 @@ route.delete('/delete/:id', async (req, res) => {
         })
         await transaction.remove()
         return res.json({
-            succes: true,
+            success: true,
             message: "transaction has been deleted"
         })
     } catch (err) {
         return res.json({
-            succes: false,
+            success: false,
             message: "internal server error",
             err
         })

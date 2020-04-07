@@ -4,7 +4,7 @@
   "description": "nairatrack",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && node index.js",
+    "start": "node index.js",
     "server": "nodemon index",
     "heroku-postbuild": "cd .. && npm install && npm run build",
     "client": "cd .. && npm run start",
@@ -13,7 +13,8 @@
   "author": "segun olanitori",
   "license": "ISC",
   "engines": {
-    "node": "12.16.0"
+    "node": "12.16.0",
+    "npm": "6.13.7"
   },
   "dependencies": {
     "cors": "^2.8.5",

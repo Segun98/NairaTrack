@@ -1,77 +1,22 @@
-const route = require('express').Router()
-const accountOne = require('../models/AccountOne')
+const express = require('express')
+const router = express.Router()
+const {
+    getAccountOne,
+    addAccountOne,
+    deleteAccountOne
+} = require('../controllers/accountone')
 
 
+router
+    .route('/')
+    .get(getAccountOne);
 
-route.get('/', async (req, res) => {
-    try {
-        const transactions = await accountOne.find()
-        return res.json({
-            data: transactions
-        })
+router
+    .route('/add')
+    .post(addAccountOne);
 
-    } catch (err) {
-        return res.json({
-            success: false,
-            error: 'Internal Server Error',
-            err
-        })
-    }
-})
+router
+    .route('/delete/:id')
+    .delete(deleteAccountOne);
 
-route.post('/add', async (req, res) => {
-    console.log(req.body)
-
-    const {
-        name,
-        amount,
-        date,
-        type,
-        category
-    } = req.body;
-    try {
-        await accountOne.create({
-            name,
-            amount,
-            date,
-            type,
-            category
-        });
-        return res.json({
-            success: true,
-            data: "transaction has been added"
-        })
-
-    } catch (err) {
-        return res.json({
-            success: false,
-            error: 'Internal Server Error',
-            err
-        })
-    }
-
-})
-
-route.delete('/delete/:id', async (req, res) => {
-
-    try {
-        const transaction = await accountOne.findById(req.params.id)
-        if (!transaction) return res.json({
-            error: 'no transaction'
-        })
-        await transaction.remove()
-        return res.json({
-            success: true,
-            message: "transaction has been deleted"
-        })
-    } catch (err) {
-        return res.json({
-            success: false,
-            message: "internal server error",
-            err
-        })
-    }
-
-})
-
-module.exports = route
+module.exports = router

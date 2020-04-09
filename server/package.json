@@ -4,9 +4,9 @@
   "description": "nairatrack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "cd .. && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "server": "nodemon index",
+    "start": "node index",
+    "heroku-postbuild": "cd .. && npm install && npm run build",
+    "server": "nodemon index --ignore client",
     "client": "cd .. && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

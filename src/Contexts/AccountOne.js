@@ -11,11 +11,13 @@ export function AccountOneProvider(props) {
 
  async function getTransactions() {
   try {
-    const res = await axios.get('/api/personal');
-    const data = res.data.data
+    const res = await axios.get('http://localhost:8080/api/personal');
+    const data = await res.data.data
     setTransactionOne(data)
   } catch (err) {
     console.log('internal error');
+    console.log(err);
+    
     
   }
 }
@@ -44,6 +46,7 @@ export function AccountOneProvider(props) {
     const SavedName = JSON.parse(localStorage.getItem("name"));
     return SavedName || [];
   }
+
 
   return (
     <AccountOneContext.Provider

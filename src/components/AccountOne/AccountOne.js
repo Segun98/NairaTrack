@@ -40,7 +40,7 @@ export default function AccountOne() {
     AccountOneBalance,
     expensesOneArray,
     incomeOneArray,
-    getTransactions,
+    getTransactions
   } = useContext(AccountOneContext);
 
 
@@ -82,11 +82,16 @@ export default function AccountOne() {
         newTransaction,
         config
       );
+      // await axios.post(
+      //   "http://localhost:8080/api/personal/add",
+      //   newTransaction,
+      //   config
+      // );
       setName("");
       setAmount("");
       setOption("");
 
-      await getTransactions();
+      getTransactions();
     } catch (err) {
      console.log('internal server error');
      

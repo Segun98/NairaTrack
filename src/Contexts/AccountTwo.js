@@ -10,12 +10,14 @@ export function AccountTwoProvider(props) {
 
   async function getTransactionsTwo() {
     try {
-      const res = await axios.get("/api/business");
+      const res = await axios.get("http://localhost:8080/api/business");
       // console.log(res.data);
-      const data = res.data.data;
+      const data = await res.data.data;
       setTransactionTwo(data);
     } catch (err) {
       console.log('internal error');
+      console.log(err);
+      
     }
   }
   //Filtered Expense and income

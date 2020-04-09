@@ -73,6 +73,7 @@ export default function Header() {
             ></i>
           </div>
         </div>
+        
         <div className={Nav ? "navigation" : "navigation open-nav"}>
           <div className="nav">
             <ul>

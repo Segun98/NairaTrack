@@ -11,12 +11,12 @@ export default function IncomeOneList({ name, date, amount, id }) {
   async function handleDelete() {
     try {
       await axios.delete(`/api/personal/delete/${id}`);
+      // await axios.delete(`http://localhost:8080/api/personal/delete/${id}`);
       setModal(true);
       getTransactions();
     } catch (err) {
-      alert('an error occured');
       console.log(err);
-      
+      setModal(true);
     }
   }
   function deleteItem() {

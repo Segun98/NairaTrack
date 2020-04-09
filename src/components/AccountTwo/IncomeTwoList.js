@@ -11,10 +11,12 @@ export default function IncomeTwoList({ name, date, amount, id }) {
   async function handleDelete() {
     try {
       await axios.delete(`/api/business/delete/${id}`);
+      // await axios.delete(`http://localhost:8080/api/business/delete/${id}`);
       setModal(true);
       getTransactionsTwo();
     } catch (err) {
-      alert('an error occured')
+      console.log(err);
+      setModal(true);
     }
   }
 

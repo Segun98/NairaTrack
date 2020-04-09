@@ -82,12 +82,17 @@ export default function AccountTwo() {
         newTransaction,
         config
       );
+      // await axios.post(
+      //   "http://localhost:8080/api/business/add",
+      //   newTransaction,
+      //   config
+      // );
       setName("");
       setAmount("");
       setOption("");
       setUnits(1);
 
-      await getTransactionsTwo();
+      getTransactionsTwo();
     } catch (err) {
       console.log('internal server error');
     }
